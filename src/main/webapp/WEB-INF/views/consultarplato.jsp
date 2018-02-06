@@ -1,3 +1,11 @@
+<%-- 
+    Document   : ConsultarPlato
+    Created on : 06-feb-2018, 13:43:18
+    Author     : USUARIO
+--%>
+
+<%@page contentType="text/html" pageEncoding="windows-1252"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -21,7 +29,7 @@ and open the template in the editor.
                 <option value="lentejas">Lentejas</option>
                 <option value="espinacasConGarbanzos">Espinacas con garbanzos</option>
             </select>
-            <a href="detallesPlato.html">
+            <a href="DetallesPlato">
                 <button>Consultar</button>
             </a>
         </div>

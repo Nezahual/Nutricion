@@ -15,7 +15,6 @@
         <h1>Plato: </h1>
         <!-- Display ingredientes añadidos-->
         <a href="AddIngredient">Añadir ingrediente</a>
-        <a href="InfoNutricional">Informacion nutricional</a>
         <a href="Inicio">Volver al inicio</a>
     </body>
 </html>

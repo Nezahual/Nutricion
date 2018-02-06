@@ -9,7 +9,8 @@
     </head>
     <body>
         <h1>Alimento</h1>
-        <a href="consultaralimento">Consultar Alimento</a>
-        <a href="crearplato">Crear Plato</a>
+        <a href="ConsultarAlimento">Consultar Alimento</a>
+        <a href="CrearPlato">Crear Plato</a>
+        <a href="ConsultarPlato">Consultar Plato</a>
     </body>
 </html>

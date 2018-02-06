@@ -11,12 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
-	@RequestMapping(value={"/","inicio"})
+	@RequestMapping(value={"/","/Inicio"})
 	public ModelAndView principal(HttpServletResponse response) throws IOException{
-		return new ModelAndView("inicio");
-	}
-        @RequestMapping(value="/Inicio")
-	public ModelAndView inicio(HttpServletResponse response) throws IOException{
 		return new ModelAndView("inicio");
 	}
         @RequestMapping(value="/ConsultarAlimento")
@@ -27,6 +23,20 @@ public class HomeController {
 	public ModelAndView detalleAlimento(HttpServletResponse response) throws IOException{
 		return new ModelAndView("detallealimento");
 	}
-        
-        
+        @RequestMapping(value="/DetallesPlato")
+	public ModelAndView detallesPlato(HttpServletResponse response) throws IOException{
+		return new ModelAndView("detallesplato");
+	}
+        @RequestMapping(value="/ConsultarPlato")
+	public ModelAndView consultarPlato(HttpServletResponse response) throws IOException{
+		return new ModelAndView("consultarplato");
+	}
+        @RequestMapping(value="/AddIngredient")
+	public ModelAndView addingrediente(HttpServletResponse response) throws IOException{
+		return new ModelAndView("addingrediente");
+	}
+        @RequestMapping(value="/CrearPlato")
+	public ModelAndView crearPlato(HttpServletResponse response) throws IOException{
+		return new ModelAndView("crearplato");
+	}
 }

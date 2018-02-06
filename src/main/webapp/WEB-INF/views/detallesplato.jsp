@@ -1,3 +1,11 @@
+<%-- 
+    Document   : detallesplato
+    Created on : 06-feb-2018, 13:44:38
+    Author     : USUARIO
+--%>
+
+<%@page contentType="text/html" pageEncoding="windows-1252"%>
+<!DOCTYPE html>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -29,7 +37,7 @@ and open the template in the editor.
                 </thead>
                 <tbody>
                     <tr>
-                        <td><a href="detallealimento.jsp">ingrediente1</a></td>
+                        <td><a href="DetalleAlimento">ingrediente1</a></td>
                         <td>5</td>
                         <td>65</td>
                         <td>65</td>
@@ -37,7 +45,7 @@ and open the template in the editor.
                         <td>4</td>
                     </tr>
                     <tr>
-                        <td><a href="detallealimento.jsp">ingrediente2</a></td>
+                        <td><a href="DetalleAlimento">ingrediente2</a></td>
                         <td>87</td>
                         <td>1</td>
                         <td>34</td>
@@ -45,7 +53,7 @@ and open the template in the editor.
                         <td>87</td>
                     </tr>
                     <tr>
-                        <td><a href="detallealimento.jsp">ingrediente3</a></td>
+                        <td><a href="DetalleAlimento">ingrediente3</a></td>
                         <td>3</td>
                         <td>44</td>
                         <td>32</td>
