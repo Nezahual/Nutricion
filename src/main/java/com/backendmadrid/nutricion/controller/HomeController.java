@@ -28,4 +28,5 @@ public class HomeController {
 		return new ModelAndView("detallealimento");
 	}
         
+        
 }
