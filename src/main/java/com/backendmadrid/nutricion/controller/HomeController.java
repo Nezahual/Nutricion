@@ -28,13 +28,4 @@ public class HomeController {
 		return new ModelAndView("detallealimento");
 	}
         
-	@RequestMapping(value="/")
-	public ModelAndView asd(HttpServletResponse response) throws IOException{
-		return new ModelAndView("home");
-	}
-	
-	@RequestMapping(value="/")
-	public ModelAndView qwe(HttpServletResponse response) throws IOException{
-		return new ModelAndView("home");
-	}
 }
