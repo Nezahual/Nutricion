@@ -17,22 +17,33 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .titulo {
+                font-weight: bolder;
+            }
+            
+            table {
+                border: 1px solid black;
+            }
+        </style>
     </head>
     <body>
         <h1>Detalles del plato</h1>
         <label class="titulo">Nombre: </label><label>nombre del plato.</label>
+        <br>
         <label class="titulo">Descricion </label><label>descripcion del plato.</label>
+        <br>
         <label class="titulo">Valor nutricional total: </label><label>valor nutricional total</label>
         <div>
             <table>
                 <thead>
                     <tr>
-                        <td>Ingrediente</td>
-                        <td>valor1</td>
-                        <td>valor2</td>
-                        <td>valor3</td>
-                        <td>valor4</td>
-                        <td>valor5</td>
+                        <td class="titulo">Ingrediente</td>
+                        <td class="titulo">valor1</td>
+                        <td class="titulo">valor2</td>
+                        <td class="titulo">valor3</td>
+                        <td class="titulo">valor4</td>
+                        <td class="titulo">valor5</td>
                     </tr>
                 </thead>
                 <tbody>
