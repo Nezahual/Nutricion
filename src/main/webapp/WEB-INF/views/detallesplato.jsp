@@ -62,7 +62,7 @@ and open the template in the editor.
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div>                                                                                
         <a href="Inicio">Volver al inicio</a>
     </body>
 </html>
