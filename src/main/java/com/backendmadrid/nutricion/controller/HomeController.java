@@ -20,4 +20,9 @@ public class HomeController {
 	public ModelAndView asd(HttpServletResponse response) throws IOException{
 		return new ModelAndView("home");
 	}
+	
+	@RequestMapping(value="/")
+	public ModelAndView qwe(HttpServletResponse response) throws IOException{
+		return new ModelAndView("home");
+	}
 }
