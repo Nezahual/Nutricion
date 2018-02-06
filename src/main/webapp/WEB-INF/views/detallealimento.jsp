@@ -13,7 +13,24 @@
     </head>
     <body>
         <h1>Detalle del Alimento</h1><br/>
-        
+        <table>
+            <thead>
+                <tr>
+                    <td>Nombre</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+        </table>
        
         <a href="Inicio">Volver al Inicio</a>
     </body>
