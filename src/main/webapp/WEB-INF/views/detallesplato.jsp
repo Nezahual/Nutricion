@@ -74,5 +74,6 @@ and open the template in the editor.
                 </tbody>
             </table>
         </div>
+        <a href="Inicio">Volver al inicio</a>
     </body>
 </html>

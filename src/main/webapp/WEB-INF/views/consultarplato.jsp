@@ -32,6 +32,7 @@ and open the template in the editor.
             <a href="DetallesPlato">
                 <button>Consultar</button>
             </a>
+            <a href="Inicio">Volver al inicio</a>
         </div>
     </body>
 </html>
