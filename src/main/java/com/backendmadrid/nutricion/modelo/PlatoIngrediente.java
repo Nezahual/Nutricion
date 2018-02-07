@@ -12,16 +12,14 @@ package com.backendmadrid.nutricion.modelo;
 public class PlatoIngrediente extends Ingrediente{
     
     private int idPlato;
-    private int idIgrediente;
     private int cantidad;
     
     public PlatoIngrediente(){}
     
-    public PlatoIngrediente(Ingrediente ingredienteAux, int idPlato, int idIngrediente, int cantidad){
+    public PlatoIngrediente(Ingrediente ingredienteAux, int idPlato, int cantidad){
     
         super(ingredienteAux);
         this.idPlato = idPlato;
-        this.idIgrediente = idIngrediente;
         this.cantidad = cantidad;
     }
 
@@ -31,14 +29,6 @@ public class PlatoIngrediente extends Ingrediente{
 
     public void setIdPlato(int idPlato) {
         this.idPlato = idPlato;
-    }
-
-    public int getIdIgrediente() {
-        return idIgrediente;
-    }
-
-    public void setIdIgrediente(int idIgrediente) {
-        this.idIgrediente = idIgrediente;
     }
 
     public int getCantidad() {

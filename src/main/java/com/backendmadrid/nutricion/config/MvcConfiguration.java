@@ -3,7 +3,7 @@ package com.backendmadrid.nutricion.config;
 import com.backendmadrid.nutricion.dao.IngredienteDAOImpl;
 import com.backendmadrid.nutricion.dao.PlatoDAOImpl;
 import com.backendmadrid.nutricion.dao.UsuarioDAOImpl;
-import com.backendmadrid.nutricion.modelo.PlatoIngredienteDAOImpl;
+import com.backendmadrid.nutricion.dao.PlatoIngredienteDAOImpl;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,8 +40,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
         
             DriverManagerDataSource ds = new DriverManagerDataSource();
             ds.setDriverClassName("com.mysql.jdbc.Driver");
-            ds.setUrl("jdbc:mysql://localhost:3306/nutricion");
-            ds.setUsername("root");
+            ds.setUrl("jdbc:mysql://cloud.josebelda.com:3306/nutricion");
+            ds.setUsername("nutricion");
             ds.setPassword("root");
             
             return ds;
