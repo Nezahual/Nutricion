@@ -9,6 +9,6 @@ package com.backendmadrid.nutricion.dao;
  *
  * @author USUARIO
  */
-public class Ingrediente {
+public interface IngredienteDAO {
     
 }
