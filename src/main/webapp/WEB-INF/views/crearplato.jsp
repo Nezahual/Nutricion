@@ -32,7 +32,7 @@
                         <button type="submit">Insertar</button>
                     </td>
                     <td style="text-align:center">
-                        <a href="Home">Cancelar</a>
+                        <a href="Inicio">Cancelar</a>
                     </td>
                 </tr>
             </table>

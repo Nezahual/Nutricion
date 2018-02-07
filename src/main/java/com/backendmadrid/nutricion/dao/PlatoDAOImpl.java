@@ -18,7 +18,7 @@ import org.springframework.jdbc.core.RowMapper;
  *
  * @author USUARIO
  */
-public class PlatoDAOImpl {
+public class PlatoDAOImpl implements PlatoDAO {
     
     @Autowired
     private DataSource dataSource;
