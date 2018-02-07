@@ -18,7 +18,7 @@ public interface PlatoDAO {
     
     public List<Plato> listar();
     
-    public Plato buscar(String nombre);
+    public Plato buscarNombre(String nombre);
     
     public void editar(Plato p);
     
