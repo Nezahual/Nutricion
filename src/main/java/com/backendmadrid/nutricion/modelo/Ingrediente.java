@@ -26,17 +26,44 @@ public class Ingrediente {
     private int fosforo;
     private int potasio;
     private int sodio;
-    private double vitamina_c;
-    private double vitamina_b12;
-    private int vitamina_a;
-    private double vitamina_e;
-    private double vitamina_d;
-    private double grasas_saturadas;
-    private double grasas_mono;
-    private double grasas_poli;
+    private double vitaminaC;
+    private double vitaminaB12;
+    private int vitaminaA;
+    private double vitaminaE;
+    private double vitaminaD;
+    private double grasasSaturadas;
+    private double grasasMono;
+    private double grasasPoli;
     private int colesterol;
 
     public Ingrediente() {
+    }
+    
+    public Ingrediente(Ingrediente ingredienteAux) {
+        this.id = ingredienteAux.getId();
+        this.descripcion = ingredienteAux.getDescripcion();
+        this.agua = ingredienteAux.getAgua();
+        this.energia = ingredienteAux.getEnergia();
+        this.proteinas = ingredienteAux.getProteinas();
+        this.grasas = ingredienteAux.getGrasas();
+        this.carbohidratos = ingredienteAux.getCarbohidratos();
+        this.fibra = ingredienteAux.getFibra();
+        this.azucar = ingredienteAux.getAzucar();
+        this.calcio = ingredienteAux.getCalcio();
+        this.hierro = ingredienteAux.getHierro();
+        this.magnesio = ingredienteAux.getMagnesio();
+        this.fosforo = ingredienteAux.getFosforo();
+        this.potasio = ingredienteAux.getPotasio();
+        this.sodio = ingredienteAux.getSodio();
+        this.vitaminaC = ingredienteAux.getVitaminaC();
+        this.vitaminaB12 = ingredienteAux.getVitaminaB12();
+        this.vitaminaA = ingredienteAux.getVitaminaA();
+        this.vitaminaE = ingredienteAux.getVitaminaD();
+        this.vitaminaD = ingredienteAux.getVitaminaD();
+        this.grasasSaturadas = ingredienteAux.getGrasasSaturadas();
+        this.grasasMono = ingredienteAux.getGrasasMono();
+        this.grasasPoli = ingredienteAux.getGrasasPoli();
+        this.colesterol = ingredienteAux.getColesterol();
     }
 
     public Ingrediente(int id, String descripcion, double agua, int energia, double proteinas, double grasas, double carbohidratos, double fibra, double azucar, int calcio, double hierro, double magnesio, int fosforo, int potasio, int sodio, double vitamina_c, double vitamina_b12, int vitamina_a, double vitamina_e, double vitamina_d, double grasas_saturadas, double grasas_mono, double grasas_poli, int colesterol) {
@@ -55,14 +82,14 @@ public class Ingrediente {
         this.fosforo = fosforo;
         this.potasio = potasio;
         this.sodio = sodio;
-        this.vitamina_c = vitamina_c;
-        this.vitamina_b12 = vitamina_b12;
-        this.vitamina_a = vitamina_a;
-        this.vitamina_e = vitamina_e;
-        this.vitamina_d = vitamina_d;
-        this.grasas_saturadas = grasas_saturadas;
-        this.grasas_mono = grasas_mono;
-        this.grasas_poli = grasas_poli;
+        this.vitaminaC = vitamina_c;
+        this.vitaminaB12 = vitamina_b12;
+        this.vitaminaA = vitamina_a;
+        this.vitaminaE = vitamina_e;
+        this.vitaminaD = vitamina_d;
+        this.grasasSaturadas = grasas_saturadas;
+        this.grasasMono = grasas_mono;
+        this.grasasPoli = grasas_poli;
         this.colesterol = colesterol;
     }
 
@@ -186,68 +213,68 @@ public class Ingrediente {
         this.sodio = sodio;
     }
 
-    public double getVitamina_c() {
-        return vitamina_c;
+    public double getVitaminaC() {
+        return vitaminaC;
     }
 
-    public void setVitamina_c(double vitamina_c) {
-        this.vitamina_c = vitamina_c;
+    public void setVitaminaC(double vitaminaC) {
+        this.vitaminaC = vitaminaC;
     }
 
-    public double getVitamina_b12() {
-        return vitamina_b12;
+    public double getVitaminaB12() {
+        return vitaminaB12;
     }
 
-    public void setVitamina_b12(double vitamina_b12) {
-        this.vitamina_b12 = vitamina_b12;
+    public void setVitaminaB12(double vitaminaB12) {
+        this.vitaminaB12 = vitaminaB12;
     }
 
-    public int getVitamina_a() {
-        return vitamina_a;
+    public int getVitaminaA() {
+        return vitaminaA;
     }
 
-    public void setVitamina_a(int vitamina_a) {
-        this.vitamina_a = vitamina_a;
+    public void setVitaminaA(int vitaminaA) {
+        this.vitaminaA = vitaminaA;
     }
 
-    public double getVitamina_e() {
-        return vitamina_e;
+    public double getVitaminaE() {
+        return vitaminaE;
     }
 
-    public void setVitamina_e(double vitamina_e) {
-        this.vitamina_e = vitamina_e;
+    public void setVitaminaE(double vitaminaE) {
+        this.vitaminaE = vitaminaE;
     }
 
-    public double getVitamina_d() {
-        return vitamina_d;
+    public double getVitaminaD() {
+        return vitaminaD;
     }
 
-    public void setVitamina_d(double vitamina_d) {
-        this.vitamina_d = vitamina_d;
+    public void setVitaminaD(double vitaminaD) {
+        this.vitaminaD = vitaminaD;
     }
 
-    public double getGrasas_saturadas() {
-        return grasas_saturadas;
+    public double getGrasasSaturadas() {
+        return grasasSaturadas;
     }
 
-    public void setGrasas_saturadas(double grasas_saturadas) {
-        this.grasas_saturadas = grasas_saturadas;
+    public void setGrasasSaturadas(double grasasSaturadas) {
+        this.grasasSaturadas = grasasSaturadas;
     }
 
-    public double getGrasas_mono() {
-        return grasas_mono;
+    public double getGrasasMono() {
+        return grasasMono;
     }
 
-    public void setGrasas_mono(double grasas_mono) {
-        this.grasas_mono = grasas_mono;
+    public void setGrasasMono(double grasasMono) {
+        this.grasasMono = grasasMono;
     }
 
-    public double getGrasas_poli() {
-        return grasas_poli;
+    public double getGrasasPoli() {
+        return grasasPoli;
     }
 
-    public void setGrasas_poli(double grasas_poli) {
-        this.grasas_poli = grasas_poli;
+    public void setGrasasPoli(double grasasPoli) {
+        this.grasasPoli = grasasPoli;
     }
 
     public int getColesterol() {
