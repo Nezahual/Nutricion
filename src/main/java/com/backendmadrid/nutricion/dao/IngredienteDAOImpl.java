@@ -83,7 +83,7 @@ public class IngredienteDAOImpl {
         return l;
     }
 
-    public Ingrediente buscarId(int id) {
+    public Ingrediente buscarPorId(int id) {
         String sql = "select * from ingredientes where id=?";
         jdbc = new JdbcTemplate(dataSource);
         Ingrediente i = jdbc.queryForObject(sql, new Object[]{id}, new IngredienteDAOImpl.IngredienteRowMapper());
