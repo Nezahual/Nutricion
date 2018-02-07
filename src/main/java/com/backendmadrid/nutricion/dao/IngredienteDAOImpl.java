@@ -20,22 +20,11 @@ import org.springframework.jdbc.core.RowMapper;
  */
 public class IngredienteDAOImpl {
     
-    @Autowired
-    private DataSource dataSource;
+    
     
     @Autowired
     private JdbcTemplate jdbc;
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public JdbcTemplate getJdbc() {
-        return jdbc;
-    }
     public void setJdbc(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
@@ -77,7 +66,6 @@ public class IngredienteDAOImpl {
 
         String sql = "select * from ingredientes order by id asc";
 
-        jdbc = new JdbcTemplate(dataSource);
         List<Ingrediente> l = jdbc.query(sql, new IngredienteDAOImpl.IngredienteRowMapper());
 
         return l;
@@ -85,7 +73,7 @@ public class IngredienteDAOImpl {
 
     public Ingrediente buscarPorId(int id) {
         String sql = "select * from ingredientes where id=?";
-        jdbc = new JdbcTemplate(dataSource);
+
         Ingrediente i = jdbc.queryForObject(sql, new Object[]{id}, new IngredienteDAOImpl.IngredienteRowMapper());
         return i;
     }

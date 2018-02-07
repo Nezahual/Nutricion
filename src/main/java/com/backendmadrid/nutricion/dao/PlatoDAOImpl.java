@@ -20,22 +20,11 @@ import org.springframework.jdbc.core.RowMapper;
  */
 public class PlatoDAOImpl implements PlatoDAO {
     
-    @Autowired
-    private DataSource dataSource;
+    
     
     @Autowired
     JdbcTemplate jdbc;
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    public JdbcTemplate getJdbc() {
-        return jdbc;
-    }
     public void setJdbc(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
     }
@@ -64,7 +53,7 @@ public class PlatoDAOImpl implements PlatoDAO {
                 + "values "
                 + "(?,?,?)";
         
-        jdbc=new JdbcTemplate(dataSource);
+        
         int n=jdbc.update(sql,new Object[]{
             p.getNombre(),
             p.getDescripcion(),
@@ -76,7 +65,7 @@ public class PlatoDAOImpl implements PlatoDAO {
 
         String sql = "select * from plato order by nombre asc";
 
-        jdbc = new JdbcTemplate(dataSource);
+        
         List<Plato> l = jdbc.query(sql, new PlatoRowMapper());
 
         return l;
@@ -84,16 +73,22 @@ public class PlatoDAOImpl implements PlatoDAO {
 
     public Plato buscarPorNombre(String nombre) {
         String sql = "select * from plato where nombre=?";
-        jdbc = new JdbcTemplate(dataSource);
+        
         Plato p = jdbc.queryForObject(sql, new Object[]{nombre}, new PlatoRowMapper());
         return p;
     }
     
     public void editar(Plato p) {
         String sql = "update plato set nombre=?,descripcion=?,autor=? where id=?";
-        jdbc = new JdbcTemplate(dataSource);
+        
         jdbc.update(sql, new Object[]{p.getNombre(),p.getDescripcion(),p.getAutor(),p.getId()});
   
+    }
+    
+    public void borrar(int id){
+        String sql="delete from plato where id=?";
+        
+        jdbc.execute(sql);
     }
     
 }

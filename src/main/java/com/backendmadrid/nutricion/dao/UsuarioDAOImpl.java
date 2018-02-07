@@ -31,23 +31,10 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         }    
     }
     
-    @Autowired
-    private DataSource dataSource;
     
     @Autowired
     JdbcTemplate jdbc;
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
-
-    public JdbcTemplate getJdbc() {
-        return jdbc;
-    }
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
 
     public void setJdbc(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
@@ -56,7 +43,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     public Usuario autenticar(String username,String password){
         
         String sql="select nombre_completo from usuario where username=? and password=?";
-        jdbc = new JdbcTemplate(dataSource);
+        
         Usuario u=jdbc.queryForObject(sql, new UsuarioRowMapper());
         return u;
    
