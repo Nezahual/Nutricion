@@ -96,4 +96,10 @@ public class PlatoDAOImpl implements PlatoDAO {
   
     }
     
+    public void borrar(int id){
+        String sql="delete from plato where id=?";
+        jdbc=new JdbcTemplate(dataSource);
+        jdbc.execute(sql);
+    }
+    
 }
