@@ -68,6 +68,24 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
+                <!-- AOP -->
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-aop</artifactId>
+                    <version>${spring.version}</version>
+                </dependency>
+                
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjrt</artifactId>
+                    <version>1.8.13</version>
+                </dependency>
+                
+                <dependency>
+                    <groupId>org.aspectj</groupId>
+                    <artifactId>aspectjweaver</artifactId>
+                    <version>1.8.13</version>
+                </dependency>
 	</dependencies>
 
 	<repositories>
