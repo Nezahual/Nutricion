@@ -19,11 +19,11 @@ create table usuario (
 	primary key (username)
 );
 
-create table plato_componente(
+create table plato_ingrediente(
 
 	id_plato int,
-	id_componente varchar(15),
-	primary key (id_plato, usuario),
+	id_ingrediente int,
+	primary key (id_plato, id_ingrediente),
 	foreign key (id_plato) references plato(id),
-	foreign key (id_componente) references componente(id)
+	foreign key (id_ingrediente) references ingredientes(id)
 );
