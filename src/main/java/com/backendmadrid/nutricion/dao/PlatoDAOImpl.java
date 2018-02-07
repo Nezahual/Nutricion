@@ -82,7 +82,7 @@ public class PlatoDAOImpl implements PlatoDAO {
         return l;
     }
 
-    public Plato buscarNombre(String nombre) {
+    public Plato buscarPorNombre(String nombre) {
         String sql = "select * from plato where nombre=?";
         jdbc = new JdbcTemplate(dataSource);
         Plato p = jdbc.queryForObject(sql, new Object[]{nombre}, new PlatoRowMapper());
