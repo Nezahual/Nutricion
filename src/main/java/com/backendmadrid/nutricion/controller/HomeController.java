@@ -1,8 +1,9 @@
 package com.backendmadrid.nutricion.controller;
 
-import com.backendmadrid.nutricion.dao.IngredienteDAO;
-import com.backendmadrid.nutricion.dao.PlatoDAO;
-import com.backendmadrid.nutricion.dao.UsuarioDAO;
+import com.backendmadrid.nutricion.dao.IngredienteDAOImpl;
+import com.backendmadrid.nutricion.dao.PlatoDAOImpl;
+import com.backendmadrid.nutricion.dao.PlatoIngredienteDAOImpl;
+import com.backendmadrid.nutricion.dao.UsuarioDAOImpl;
 import com.backendmadrid.nutricion.modelo.Ingrediente;
 import com.backendmadrid.nutricion.modelo.Plato;
 import java.io.IOException;
@@ -20,13 +21,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
     @Autowired
-    UsuarioDAO usuarioDAO;
+    UsuarioDAOImpl usuarioDAO;
 
     @Autowired
-    PlatoDAO platoDAO;
+    PlatoDAOImpl platoDAO;
 
     @Autowired
-    IngredienteDAO ingredienteDAO;
+    IngredienteDAOImpl ingredienteDAO;
+    
+    @Autowired
+    PlatoIngredienteDAOImpl platoIngredienteDAO;
 
     @RequestMapping(value = {"/", "/Inicio"})
     public ModelAndView principal(HttpServletResponse response) throws IOException {

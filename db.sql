@@ -51,6 +51,7 @@ create table plato_ingrediente(
 
 	id_plato int,
 	id_ingrediente int,
+        cantidad int not null defauld 0,
 	primary key (id_plato, id_ingrediente),
 	foreign key (id_plato) references plato(id),
 	foreign key (id_ingrediente) references ingredientes(id)
