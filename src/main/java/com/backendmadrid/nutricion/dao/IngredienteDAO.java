@@ -5,10 +5,16 @@
  */
 package com.backendmadrid.nutricion.dao;
 
+import com.backendmadrid.nutricion.modelo.Ingrediente;
+import java.util.List;
+
 /**
  *
  * @author USUARIO
  */
 public interface IngredienteDAO {
     
+    public List<Ingrediente> listar();
+    
+    public Ingrediente buscarId(int id);
 }
