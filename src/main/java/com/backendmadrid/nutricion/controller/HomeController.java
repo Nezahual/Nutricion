@@ -1,18 +1,19 @@
 package com.backendmadrid.nutricion.controller;
 
 import com.backendmadrid.nutricion.dao.IngredienteDAOImpl;
-import com.backendmadrid.nutricion.dao.PlatoDAO;
 import com.backendmadrid.nutricion.dao.PlatoDAOImpl;
 import com.backendmadrid.nutricion.dao.PlatoIngredienteDAOImpl;
 import com.backendmadrid.nutricion.dao.UsuarioDAOImpl;
 import com.backendmadrid.nutricion.modelo.Ingrediente;
 import com.backendmadrid.nutricion.modelo.Plato;
 import com.backendmadrid.nutricion.modelo.PlatoIngrediente;
+import com.backendmadrid.nutricion.modelo.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -55,7 +56,25 @@ public class HomeController {
         return mv;    
     } 
     
-    //----------------------------(EditarPlato)--------------------// 
+    //----------------------------(EditarPlato y Lista de ingredientePlato)--------------------// 
+    
+    @RequestMapping(value = "/EditarPlato")
+    public ModelAndView editarPlato(
+            HttpServletResponse response,
+            @RequestParam(value = "id") int id
+            ) throws IOException {
+
+        Plato p= platoDAO.buscarPorId(id);
+        
+        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(id);
+        ModelAndView mv1 = new ModelAndView("editarplato");
+        mv1.addObject("listado", listadoIngredientesEnPlato);
+
+        ModelAndView mv = new ModelAndView("editarplato");
+        mv.addObject("p", p);
+
+        return mv;
+    }
     
     @RequestMapping(value = "/EjecutarEditarPlato")
     public ModelAndView ejecutarEditarPlato(
@@ -69,26 +88,9 @@ public class HomeController {
         Plato p = new Plato(-1,nombre, descripcion, autor);
         platoDAO.crearPlato(p);
 
-        return new ModelAndView("editarPlato");
+        return new ModelAndView("editarplato");
     }
     
-    
-    
-    //----------------------------(Listado de ingredientes del Plato)--------------------//
-    @RequestMapping(value = "/ListarIngredientesPlato")
-    public ModelAndView listarIngredientesPlato(
-            HttpServletResponse response,
-            HttpServletRequest request,
-            @RequestParam(value = "idPlato") int idPlato
-            ) throws IOException {
-        
-        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(idPlato);
-        ModelAndView mv = new ModelAndView("listaringredientesplato");
-        mv.addObject("listado", listadoIngredientesEnPlato);
-        
-        
-        return mv;    
-    }
     
     //----------------------------(Lista y Agregar ingredientes)--------------------//
 
@@ -112,13 +114,11 @@ public class HomeController {
             @RequestParam(value = "idIngredient") int idIngredient,
             @RequestParam(value = "cantidad") int cantidad
             ) throws IOException {
-        ;
+        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngredient, cantidad);
 
         return new ModelAndView("editarPlato"); 
     }
-    
-    
-    
+
     
     //---------------------------(Crear Plato)---------------//
     
@@ -142,19 +142,27 @@ public class HomeController {
         return new ModelAndView("ejecutarcrear");
     }
 
-
-    //---------------------------(Detalle Plato)-----------------//
-    
-    @RequestMapping(value = "/DetallesPlato")
-    public ModelAndView detallesPlato(HttpServletResponse response) throws IOException {
-        return new ModelAndView("detallesplato");
+    //-----------------------------(Inicio Sesion)--------------------//
+    @RequestMapping(value = "/Login")
+    public ModelAndView login(HttpServletResponse response) throws IOException {
+        return new ModelAndView("login");
     }
     
-    //---------------------------(Detalle Ingrediente)-----------------//
-    
-    @RequestMapping(value = "/DetallesIngrediente")
-    public ModelAndView detallesIngrediente(HttpServletResponse response) throws IOException {
-        return new ModelAndView("detallesingrediente");
+    @RequestMapping(value = "/EjecutarLogin")
+    public ModelAndView ejecutarLogin(
+            HttpServletResponse response,
+            HttpSession sesion,
+            @RequestParam(value="usuario") String usuario,
+            @RequestParam(value="password") String password    
+    ) throws IOException {
+            Usuario u= new Usuario(usuario,password);
+            ModelAndView m;
+            if(usuarioDAO.autenticar(u,password)){
+                sesion.setAttribute("usuario",u);
+                m=new ModelAndView("inicio");
+            }else{
+                m=new ModelAndView("login");
+            }
+            return m;
     }
-
 }

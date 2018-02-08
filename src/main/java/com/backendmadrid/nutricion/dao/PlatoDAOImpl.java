@@ -80,10 +80,10 @@ public class PlatoDAOImpl implements PlatoDAO {
         return listaDePlatoAutor;
     }
 
-    public Plato buscarPorNombre(String nombre) {
-        String sql = "select * from plato where nombre=?";
+    public Plato buscarPorId(int id) {
+        String sql = "select * from plato where id=?";
         
-        Plato p = jdbc.queryForObject(sql, new Object[]{nombre}, new PlatoRowMapper());
+        Plato p = jdbc.queryForObject(sql, new Object[]{id}, new PlatoRowMapper());
         return p;
     }
     
