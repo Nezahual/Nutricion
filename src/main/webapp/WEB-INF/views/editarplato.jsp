@@ -37,9 +37,12 @@
         </thread>
         <c:forEach items="${requestScope.ingredientes}" var="c" >  <!--Crear y cambiar requestscope-->
             <tr>
-                <td><a href="Editar?idIngrediente=${c.id}">${c.descripcion}</a></td>
+                <td>
+                    ${c.descripcion}
+                    <a href="EliminarIngredientes?idIngrediente=${c.idPlato}&idPlato=${c.idIngrediente}">Eliminar</a>
+                </td>
             </tr>
-        </c:foreach>
+        </c:forEach>
     </table>
 </form>
 <a href="AddIngredient">Añadir ingrediente</a>
