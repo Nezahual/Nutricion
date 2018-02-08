@@ -1,0 +1,29 @@
+#menuContainer {
+    heigh: 10%;
+    background: rgba(255,255,255,0.4);
+}
+
+#menuTitleContainer {
+    float: left;
+}
+
+#menuTitleContainer a{
+    font-size: 50px;
+    font-weight: bold;
+    color: green;
+    font-family: serif;
+}
+
+#menuButtonsContainer {
+    float: right;
+}
+
+#menuButtonsContainer a {
+    margin-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+body {
+    background-color: red !important;
+}
