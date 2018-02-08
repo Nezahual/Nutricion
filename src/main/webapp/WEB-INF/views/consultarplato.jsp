@@ -13,6 +13,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+    <!--No deberia de mostrarse si no estas logueado-->
     <head>
         <title>TODO supply a title</title>
         <meta charset="windows-1252">
