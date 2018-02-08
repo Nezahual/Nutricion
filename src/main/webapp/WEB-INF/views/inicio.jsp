@@ -3,4 +3,5 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <jsp:include page="plantilla/cabecera.jsp" />
-<jsp:include page="plantilla/pie2.jsp" />
+    PAGE CONTENT
+<jsp:include page="plantilla/pie.jsp" />

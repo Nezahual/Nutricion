@@ -1,6 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<br />
-        <h1>Pie Cobros</h1>
-        <a href="Index" class="btn btn-info" role="button">Volver a la pagina de inicio</a>
+                </div>
+            </div>
+            <div class="row" style="height: 8vh; border: 1px solid black;">
+                <div class="col" style="text-align: center">
+                    <span>Nutricion Backend Madrid 2018</span>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
