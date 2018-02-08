@@ -57,6 +57,18 @@ public class HomeController {
     
     //----------------------------(EditarPlato)--------------------// 
     
+    @RequestMapping(value = "/EditarPlato")
+    public ModelAndView editarPlato(HttpServletResponse response,
+            @RequestParam(value = "id") int id) throws IOException {
+
+        Plato p= platoDAO.buscarPorNombre(id);
+
+        ModelAndView mv = new ModelAndView("editar");
+        mv.addObject("p", p);
+
+        return mv;
+    }
+    
     @RequestMapping(value = "/EjecutarEditarPlato")
     public ModelAndView ejecutarEditarPlato(
             HttpServletResponse response,
@@ -69,7 +81,7 @@ public class HomeController {
         Plato p = new Plato(-1,nombre, descripcion, autor);
         platoDAO.crearPlato(p);
 
-        return new ModelAndView("editarPlato");
+        return new ModelAndView("listaringredientesplato");
     }
     
     
