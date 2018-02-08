@@ -4,14 +4,7 @@
     Author     : USUARIO
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Nuevo plato</title>
-    </head>
-    <body>
+<jsp:include page="plantilla/cabecera.jsp" />
         <h1>Datos del Autor: </h1>
         <form action="EjecutarCrearPlato" method="POST">
             <table>
@@ -39,5 +32,4 @@
         </form>
         <a href="AddIngredient">Añadir ingrediente</a>
         <a href="Inicio">Volver al inicio</a>
-    </body>
-</html>
+    <jsp:include page="plantilla/pie.jsp" />

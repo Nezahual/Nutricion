@@ -1,19 +1,4 @@
-<%-- 
-    Document   : detallesplato
-    Created on : 06-feb-2018, 13:44:38
-    Author     : USUARIO
---%>
-
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
-<!DOCTYPE html>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
+<jsp:include page="plantilla/cabecera.jsp" />
         <title>TODO supply a title</title>
         <meta charset="windows-1252">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,5 +60,4 @@ and open the template in the editor.
             </table>
         </div>
         <a href="Inicio">Volver al inicio</a>
-    </body>
-</html>
+<jsp:include page="plantilla/pie.jsp" />
