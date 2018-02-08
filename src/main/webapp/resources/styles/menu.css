@@ -1,10 +1,6 @@
 #menuContainer {
     heigh: 10%;
-    background: rgba(255,255,255,0.4);
-}
-
-#menuTitleContainer {
-    float: left;
+    background-color: rgba(255,255,255,0.5);
 }
 
 #menuTitleContainer a{
@@ -12,18 +8,26 @@
     font-weight: bold;
     color: green;
     font-family: serif;
-}
-
-#menuButtonsContainer {
-    float: right;
+    margin-left: 10%;
+    text-transform: uppercase;
 }
 
 #menuButtonsContainer a {
-    margin-right: 30px;
+    margin-left: 30px;
     font-size: 20px;
     font-weight: bold;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
+.loginLogout{
+    float:right;
+}
+
 body {
-    background-color: red !important;
+    background-image: url("../images/inicio.png");
+    background-position:50% 50%; 
+    background-size:cover;  
 }
