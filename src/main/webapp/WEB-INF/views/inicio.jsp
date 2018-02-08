@@ -3,5 +3,6 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <jsp:include page="plantilla/cabecera.jsp" />
-    <!--PAGE CONTENT-->
+<a href="ConsultarPlato">Consultar platos</a>
+<a href="CrearPlato">Crear plato</a>
 <jsp:include page="plantilla/pie.jsp" />
