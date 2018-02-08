@@ -7,4 +7,4 @@
         <input type="password" name="password" placeholder="Contraseña"/> <br/>
         <button type="submit">Enviar</button>
     </form>   
-<jsp:include page="plantilla/cabecera.jsp" />
+<jsp:include page="plantilla/pie.jsp" />
