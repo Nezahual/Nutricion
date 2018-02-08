@@ -11,6 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>${requestScope.titulo}</title>
     </head>
-    <jsp:include page="menu.jsp" />
-    <body style="background-color: lightgreen;">
-        
+    <body>
+        <div class="container">
+            <div class="row" id="menuContainer" style="height: 12vh; border: 1px solid black;">
+                <jsp:include page="menu.jsp" />
+            </div>
+            <!--Inicio Contenido Pagina-->
+            <div class="row"style="height: 80vh; border: 1px solid black;">
+                <div class="col align-self-center">
