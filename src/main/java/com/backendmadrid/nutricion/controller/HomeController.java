@@ -56,7 +56,7 @@ public class HomeController {
         return mv;    
     } 
     
-    //----------------------------(EditarPlato)--------------------// 
+    //----------------------------(EditarPlato y Lista de ingredientePlato)--------------------// 
     
     @RequestMapping(value = "/EditarPlato")
     public ModelAndView editarPlato(
@@ -114,7 +114,7 @@ public class HomeController {
             @RequestParam(value = "idIngredient") int idIngredient,
             @RequestParam(value = "cantidad") int cantidad
             ) throws IOException {
-        ;
+        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngredient, cantidad);
 
         return new ModelAndView("editarPlato"); 
     }
