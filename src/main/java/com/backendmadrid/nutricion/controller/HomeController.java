@@ -1,6 +1,7 @@
 package com.backendmadrid.nutricion.controller;
 
 import com.backendmadrid.nutricion.dao.IngredienteDAOImpl;
+import com.backendmadrid.nutricion.dao.PlatoDAO;
 import com.backendmadrid.nutricion.dao.PlatoDAOImpl;
 import com.backendmadrid.nutricion.dao.PlatoIngredienteDAOImpl;
 import com.backendmadrid.nutricion.dao.UsuarioDAOImpl;
@@ -85,7 +86,11 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("consultarplato");
         mv.addObject("listado", l);
         return mv;    
-    }  
+    } 
+    
+//----------------------------(EditarPlato)--------------------//  
+    
+    
     
 //---------------------------(Detalle Plato)-----------------//
     
