@@ -61,7 +61,7 @@ public class HomeController {
     public ModelAndView editarPlato(HttpServletResponse response,
             @RequestParam(value = "id") int id) throws IOException {
 
-        Plato p= platoDAO.buscarPorNombre(id);
+        Plato p= platoDAO.buscarPorId(id);
 
         ModelAndView mv = new ModelAndView("editar");
         mv.addObject("p", p);
