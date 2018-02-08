@@ -45,7 +45,7 @@ public class PlatoDAOImpl implements PlatoDAO {
     
     public void crearPlato(Plato p){
         
-        String sql="insert into plato("
+        String sql="insert into platos("
                 + "nombre,"
                 + "descripcion,"
                 + "autor)"
@@ -62,7 +62,7 @@ public class PlatoDAOImpl implements PlatoDAO {
     
     public List<Plato> listar() {
 
-        String sql = "select * from plato order by nombre asc";
+        String sql = "select * from platos order by nombre asc";
 
         
         List<Plato> listaDePlato = jdbc.query(sql, new PlatoRowMapper());
@@ -72,7 +72,7 @@ public class PlatoDAOImpl implements PlatoDAO {
     
      public List<Plato> listarPlatoPorAutor(String autor) {
 
-        String sql = "select * from plato where autor=?";
+        String sql = "select * from platos where autor=?";
 
         
         List<Plato> listaDePlatoAutor = jdbc.query(sql, new PlatoRowMapper());
@@ -81,21 +81,21 @@ public class PlatoDAOImpl implements PlatoDAO {
     }
 
     public Plato buscarPorId(int id) {
-        String sql = "select * from plato where id=?";
+        String sql = "select * from platos where id=?";
         
         Plato p = jdbc.queryForObject(sql, new Object[]{id}, new PlatoRowMapper());
         return p;
     }
     
     public void editarPlato(Plato p) {
-        String sql = "update plato set nombre=?,descripcion=?,autor=? where id=?";
+        String sql = "update platos set nombre=?,descripcion=?,autor=? where id=?";
         
         jdbc.update(sql, new Object[]{p.getNombre(),p.getDescripcion(),p.getAutor(),p.getId()});
   
     }
     
     public void borrar(int id){
-        String sql="delete from plato where id=?";
+        String sql="delete from platos where id=?";
         
         jdbc.execute(sql);
     }
