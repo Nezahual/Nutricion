@@ -30,6 +30,6 @@
                 </tr>
             </table>
         </form>
-        <a href="AddIngredient">Añadir ingrediente</a>
+        <a href="AgregarIngrediente">Añadir ingrediente</a>
         <a href="Inicio">Volver al inicio</a>
     <jsp:include page="plantilla/pie.jsp" />
