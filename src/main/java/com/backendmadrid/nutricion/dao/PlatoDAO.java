@@ -18,7 +18,7 @@ public interface PlatoDAO {
     
     public List<Plato> listar();
     
-    public Plato buscarPorNombre(int id);
+    public Plato buscarPorId(int id);
     
     public void editarPlato(Plato p);
     
