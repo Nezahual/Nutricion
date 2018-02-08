@@ -8,7 +8,6 @@ package com.backendmadrid.nutricion.dao;
 import com.backendmadrid.nutricion.modelo.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

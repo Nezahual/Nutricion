@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface PlatoDAO {
     
-    public void create(Plato p);
+    public void crearPlato(Plato p);
     
     public List<Plato> listar();
     
