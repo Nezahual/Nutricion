@@ -92,7 +92,7 @@ public class HomeController {
     }
     
     
-    //----------------------------(Lista y Agregar ingredientes)--------------------//
+    //----------------------------(Lista ingredientes)--------------------//
 
     @RequestMapping(value = "/AgregarIngrediente")
     public ModelAndView agregarIngrediente(
@@ -104,18 +104,21 @@ public class HomeController {
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
         mv.addObject("listado", listaDeIngredientes);
+        mv.addObject(idPlato);
         return mv;
     }
+    
+    //----------------------------(Agregar ingredientes)--------------------//
     
     @RequestMapping(value = "/EjecutarAgregarIngrediente")
     public ModelAndView ejecutarAgregarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato,
-            @RequestParam(value = "idIngredient") int idIngredient,
+            @RequestParam(value = "idIngrediente") int idIngrediente,
             @RequestParam(value = "cantidad") int cantidad
             ) throws IOException {
-        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngredient, cantidad);
+        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngrediente, cantidad);
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
