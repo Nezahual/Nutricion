@@ -130,7 +130,7 @@ public class HomeController {
             @RequestParam(value = "idPlato") int idPlato,
             @RequestParam(value = "idIngrediente")int idIngrediente
             ) throws IOException {
-        platoIngredienteDAO.borrarIngredienteDePlato(idPlato, idPlato);
+        platoIngredienteDAO.borrarIngredienteDePlato(idPlato, idIngrediente);
         
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
