@@ -127,8 +127,8 @@ public class HomeController {
         return new ModelAndView("crearplato");
     }
 
-    @RequestMapping(value = "/EjecutarCrear")
-    public ModelAndView ejecutarCrear(
+    @RequestMapping(value = "/EjecutarCrearPlato")
+    public ModelAndView ejecutarCrearPlato(
             HttpServletResponse response,
             HttpServletRequest request,
             @RequestParam(value = "nombre") String nombre,
@@ -139,7 +139,7 @@ public class HomeController {
         Plato p = new Plato(-1,nombre, descripcion, autor);
         platoDAO.crearPlato(p);
 
-        return new ModelAndView("ejecutarcrear");
+        return new ModelAndView("");
     }
 
     //-----------------------------(Inicio Sesion)--------------------//
