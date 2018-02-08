@@ -59,12 +59,18 @@ public class HomeController {
     //----------------------------(EditarPlato)--------------------// 
     
     @RequestMapping(value = "/EditarPlato")
-    public ModelAndView editarPlato(HttpServletResponse response,
-            @RequestParam(value = "id") int id) throws IOException {
+    public ModelAndView editarPlato(
+            HttpServletResponse response,
+            @RequestParam(value = "id") int id
+            ) throws IOException {
 
         Plato p= platoDAO.buscarPorId(id);
+        
+        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(id);
+        ModelAndView mv1 = new ModelAndView("editarplato");
+        mv1.addObject("listado", listadoIngredientesEnPlato);
 
-        ModelAndView mv = new ModelAndView("editar");
+        ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("p", p);
 
         return mv;
@@ -85,23 +91,6 @@ public class HomeController {
         return new ModelAndView("editarplato");
     }
     
-    
-    
-    //----------------------------(Listado de ingredientes del Plato)--------------------//
-    @RequestMapping(value = "/ListarIngredientesPlato")
-    public ModelAndView listarIngredientesPlato(
-            HttpServletResponse response,
-            HttpServletRequest request,
-            @RequestParam(value = "idPlato") int idPlato
-            ) throws IOException {
-        
-        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(idPlato);
-        ModelAndView mv = new ModelAndView("listaringredientesplato");
-        mv.addObject("listado", listadoIngredientesEnPlato);
-        
-        
-        return mv;    
-    }
     
     //----------------------------(Lista y Agregar ingredientes)--------------------//
 
@@ -129,9 +118,7 @@ public class HomeController {
 
         return new ModelAndView("editarPlato"); 
     }
-    
-    
-    
+
     
     //---------------------------(Crear Plato)---------------//
     
@@ -155,22 +142,6 @@ public class HomeController {
         return new ModelAndView("ejecutarcrear");
     }
 
-
-    //---------------------------(Detalle Plato)-----------------//
-    
-    @RequestMapping(value = "/DetallesPlato")
-    public ModelAndView detallesPlato(HttpServletResponse response) throws IOException {
-        return new ModelAndView("detallesplato");
-    }
-    
-    //---------------------------(Detalle Ingrediente)-----------------//
-    
-    @RequestMapping(value = "/DetallesIngrediente")
-    public ModelAndView detallesIngrediente(HttpServletResponse response) throws IOException {
-        return new ModelAndView("detallesingrediente");
-    }
-    
-    
     //-----------------------------(Inicio Sesion)--------------------//
     @RequestMapping(value = "/Login")
     public ModelAndView login(HttpServletResponse response) throws IOException {
@@ -185,9 +156,13 @@ public class HomeController {
             @RequestParam(value="password") String password    
     ) throws IOException {
             Usuario u= new Usuario(usuario,password);
+            ModelAndView m;
             if(usuarioDAO.autenticar(u,password)){
                 sesion.setAttribute("usuario",u);
-            }//else error
-            return new ModelAndView("inicio");
+                m=new ModelAndView("inicio");
+            }else{
+                m=new ModelAndView("login");
+            }
+            return m;
     }
 }
