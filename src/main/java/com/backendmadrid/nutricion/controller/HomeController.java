@@ -92,25 +92,54 @@ public class HomeController {
     }
     
     
-    //----------------------------(Lista y Agregar ingredientes)--------------------//
+    //----------------------------(Lista ingredientes)--------------------//
 
     @RequestMapping(value = "/AgregarIngrediente")
     public ModelAndView agregarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
-            @RequestParam(value = "idPlato") int idPlato,
-            @RequestParam(value = "idIngredient") int idIngredient,
-            @RequestParam(value = "cantidad") int cantidad
+            @RequestParam(value = "idPlato") int idPlato
             ) throws IOException {
         List<Ingrediente> listaDeIngredientes = ingredienteDAO.listarIngredientes();
-        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngredient, cantidad);
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
         mv.addObject("listado", listaDeIngredientes);
+        mv.addObject(idPlato);
         return mv;
     }
-
     
+    //----------------------------(Agregar ingredientes)--------------------//
+    
+    @RequestMapping(value = "/EjecutarAgregarIngrediente")
+    public ModelAndView ejecutarAgregarIngrediente(
+            HttpServletResponse response,
+            HttpServletRequest request,
+            @RequestParam(value = "idPlato") int idPlato,
+            @RequestParam(value = "idIngrediente") int idIngrediente,
+            @RequestParam(value = "cantidad") int cantidad
+            ) throws IOException {
+        platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngrediente, cantidad);
+
+        ModelAndView mv = new ModelAndView("agregaringrediente");
+        
+        return mv;
+    }
+    
+    //-----------------------(Eliminar ingrediente)--------------//
+    @RequestMapping(value = "/EliminarIngrediente")
+    public ModelAndView eliminerIngrediente(
+            HttpServletResponse response,
+            HttpServletRequest request,
+            @RequestParam(value = "idPlato") int idPlato,
+            @RequestParam(value = "idIngrediente")int idIngrediente
+            ) throws IOException {
+        platoIngredienteDAO.borrarIngredienteDePlato(idPlato, idIngrediente);
+        
+        ModelAndView mv = new ModelAndView("agregaringrediente");
+        
+        return mv;
+
+    }
     //---------------------------(Crear Plato)---------------//
     
     @RequestMapping(value = "/CrearPlato")
