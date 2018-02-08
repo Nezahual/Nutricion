@@ -28,19 +28,19 @@ public class IngredienteDAOImpl {
         this.jdbc = jdbc;
     }
     
-    public List<Ingrediente> listar() {
+    public List<Ingrediente> listarIngredientes() {
 
         String sql = "select * from ingredientes order by id asc";
 
-        List<Ingrediente> l = jdbc.query(sql, new IngredienteRowMapper());
+        List<Ingrediente> listaDeIngredientes = jdbc.query(sql, new IngredienteRowMapper());
 
-        return l;
+        return listaDeIngredientes;
     }
 
-    public Ingrediente buscarPorId(int id) {
-        String sql = "select * from ingredientes where id=?";
+    public Ingrediente buscarPorDescripcion(String descripcion) {
+        String sql = "select * from ingredientes where descripcion=?";
 
-        Ingrediente i = jdbc.queryForObject(sql, new Object[]{id}, new IngredienteRowMapper());
+        Ingrediente i = jdbc.queryForObject(sql, new Object[]{descripcion}, new IngredienteRowMapper());
         return i;
     }
 }

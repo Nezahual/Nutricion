@@ -20,8 +20,10 @@ public interface PlatoDAO {
     
     public Plato buscarPorNombre(String nombre);
     
-    public void editar(Plato p);
+    public void editarPlato(Plato p);
     
     public void borrar(int id);
+    
+    public List<Plato> listarPlatoPorAutor(String autor);
     
 }
