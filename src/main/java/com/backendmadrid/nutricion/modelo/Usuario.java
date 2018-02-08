@@ -23,6 +23,11 @@ public class Usuario {
         this.nombreCompleto = nombreCompleto;
         this.password = password;
     }
+    
+    public Usuario(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;

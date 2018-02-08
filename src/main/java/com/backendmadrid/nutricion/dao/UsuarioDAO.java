@@ -13,5 +13,5 @@ import com.backendmadrid.nutricion.modelo.Usuario;
  */
 public interface UsuarioDAO {
     
-    public Usuario autenticar(String username,String password);
+    public Boolean autenticar(Usuario u,String password);
 }

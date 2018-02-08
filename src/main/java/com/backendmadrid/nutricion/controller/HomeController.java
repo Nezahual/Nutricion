@@ -1,18 +1,19 @@
 package com.backendmadrid.nutricion.controller;
 
 import com.backendmadrid.nutricion.dao.IngredienteDAOImpl;
-import com.backendmadrid.nutricion.dao.PlatoDAO;
 import com.backendmadrid.nutricion.dao.PlatoDAOImpl;
 import com.backendmadrid.nutricion.dao.PlatoIngredienteDAOImpl;
 import com.backendmadrid.nutricion.dao.UsuarioDAOImpl;
 import com.backendmadrid.nutricion.modelo.Ingrediente;
 import com.backendmadrid.nutricion.modelo.Plato;
 import com.backendmadrid.nutricion.modelo.PlatoIngrediente;
+import com.backendmadrid.nutricion.modelo.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -168,5 +169,25 @@ public class HomeController {
     public ModelAndView detallesIngrediente(HttpServletResponse response) throws IOException {
         return new ModelAndView("detallesingrediente");
     }
-
+    
+    
+    //-----------------------------(Inicio Sesion)--------------------//
+    @RequestMapping(value = "/Login")
+    public ModelAndView login(HttpServletResponse response) throws IOException {
+        return new ModelAndView("login");
+    }
+    
+    @RequestMapping(value = "/EjecutarLogin")
+    public ModelAndView ejecutarLogin(
+            HttpServletResponse response,
+            HttpSession sesion,
+            @RequestParam(value="usuario") String usuario,
+            @RequestParam(value="password") String password    
+    ) throws IOException {
+            Usuario u= new Usuario(usuario,password);
+            if(usuarioDAO.autenticar(u,password)){
+                sesion.setAttribute("usuario",u);
+            }//else error
+            return new ModelAndView("inicio");
+    }
 }
