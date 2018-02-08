@@ -24,4 +24,6 @@ public interface PlatoDAO {
     
     public void borrar(int id);
     
+    public List<Plato> listarPlatoPorAutor(String autor);
+    
 }
