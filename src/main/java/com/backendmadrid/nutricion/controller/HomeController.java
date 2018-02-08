@@ -57,7 +57,20 @@ public class HomeController {
     
     //----------------------------(EditarPlato)--------------------// 
     
-    
+    @RequestMapping(value = "/EjecutarEditarPlato")
+    public ModelAndView ejecutarEditarPlato(
+            HttpServletResponse response,
+            HttpServletRequest request,
+            @RequestParam(value = "nombre") String nombre,
+            @RequestParam(value = "descripcion") String descripcion,
+            @RequestParam(value = "autor") String autor
+    ) throws IOException {
+
+        Plato p = new Plato(-1,nombre, descripcion, autor);
+        platoDAO.crearPlato(p);
+
+        return new ModelAndView("editarPlato");
+    }
     
     
     

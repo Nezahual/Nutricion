@@ -87,7 +87,7 @@ public class PlatoDAOImpl implements PlatoDAO {
         return p;
     }
     
-    public void editar(Plato p) {
+    public void editarPlato(Plato p) {
         String sql = "update plato set nombre=?,descripcion=?,autor=? where id=?";
         
         jdbc.update(sql, new Object[]{p.getNombre(),p.getDescripcion(),p.getAutor(),p.getId()});
