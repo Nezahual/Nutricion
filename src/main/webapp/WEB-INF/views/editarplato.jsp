@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="desc">Descripcion actual: </label>
-      <textarea class="form-control" id="desc" name="descripcion" value="${requestScope.p.descripcion}" rows="3"></textarea>
+      <textarea class="form-control" id="desc" name="descripcion" rows="4">${requestScope.p.descripcion}</textarea>
     </div>
     <div class="form-group">
       <label for="aut">Autor del plato: ${requestScope.p.autor}</label>
