@@ -5,48 +5,89 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
-<h1>Datos del Autor: </h1>
-<form action="EjecutarCrearPlato" method="POST">
-    <table>
-        <tr>
-            <td><label for="nombre">Nombre:</label></td>
-            <td><input type="text" name="nombre" placeholder="Nombre del plato"/></td>
-        </tr>
-        <tr>
-            <td><label for="descripcion">Descripcion:</label></td>
-            <td><input type="text" name="descripcion" placeholder="Descripcion del plato"/></td>
-        </tr>
-        <tr>
-            <td><label for="autor">Autor del plato:</label></td>
-            <td><input type="text" name="autor" placeholder="Autor del plato"/></td>
-        </tr>
-        <tr>
-            <td style="text-align:center">
-                <button type="submit">Insertar</button>
-            </td>
-            <td style="text-align:center">
-                <a href="Inicio">Cancelar</a>
-            </td>
-        </tr>
+<div class="container" style="width:50%">
+  <h2>Datos del plato: </h2>
+  <form action="EjecutarCrearPlato" method="Post">
+  <table>
+    <div class="form-group">
+      <label for="nombrep">Nombre actual: ${requestScope.plato.nombre}</label>
+      <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombrep">
+    </div>
+    <div class="form-group">
+      <label for="desc">Descripcion actual: ${requestScope.plato.descripcion}</label>
+      <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descp">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor del plato: ${requestScope.plato.descripcion}</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
     </table>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Ingredientes</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${requestScope.ingredientes}" var="c" >
-                <tr>
-                    <td>
-                        ${c.descripcion}
-                        <a href="EliminarIngredientes?idIngrediente=${c.idPlato}&idPlato=${c.idIngrediente}">Eliminar</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </tbody>
+  </div>
+  <div class="container"
+    <br/>
+    <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Agua</th>
+          <th>Energia</th>
+          <th>Proteinas</th>
+          <th>Grasas</th>
+          <th>Carbohidratos</th>
+          <th>Fibra</th>
+          <th>Azucar</th>
+          <th>Calcio</th>
+          <th>Hierro</th>
+          <th>Magnesio</th>
+          <th>Fosforo</th>
+          <th>Potasio</th>
+          <th>Sodio</th>
+          <th>Vitamina C</th>
+          <th>Vitamina B12</th>
+          <th>Vitamina A</th>
+          <th>Vitamina E</th>
+          <th>Vitamina D</th>
+          <th>Grasas Saturadas</th>
+          <th>Grasas Monoinsaturadas</th>
+          <th>Grasas Polyinsaturadas</th>
+          <th>Colesterol</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<c:forEach items="${requestScope.ingredientes}" var="c" >
+      		<tr>
+          		<td>${c.descripcion}</td>
+          		<td>${c.agua}</td>
+          		<td>${c.energia}</td>
+          		<td>${c.proteinas}</td>
+          		<td>${c.grasas}</td>
+          		<td>${c.carbohidratos}</td>
+          		<td>${c.fibra}</td>
+          		<td>${c.azucar}</td>
+          		<td>${c.calcio}</td>
+          		<td>${c.hierro}</td>
+          		<td>${c.magnesio}</td>
+          		<td>${c.fosforo}</td>
+          		<td>${c.potasio}</td>
+          		<td>${c.sodio}</td>
+          		<td>${c.vitaminaC}</td>
+          		<td>${c.vitaminaB12}</td>
+          		<td>${c.vitaminaA}</td>
+          		<td>${c.vitaminaE}</td>
+         		<td>${c.vitaminaD}</td>
+          		<td>${c.grasasSaturadas}</td>
+          		<td>${c.grasasMono}</td>
+          		<td>${c.grasasPoli}</td>
+          		<td>${c.colesterol}</td>
+        	</tr>
+         </c:forEach>
+      </tbody>
     </table>
-</form>
+  </div>
+  </form>
+</div>
 <a href="AddIngredient">Añadir ingrediente</a>
 <a href="Inicio">Volver al inicio</a>
 <jsp:include page="plantilla/pie.jsp" />
