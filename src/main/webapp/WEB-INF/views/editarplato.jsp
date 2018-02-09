@@ -10,15 +10,15 @@
   <form action="EjecutarCrearPlato" method="Post">
   <table>
     <div class="form-group">
-      <label for="nombrep">Nombre actual: ${requestScope.plato.nombre}</label>
+      <label for="nombrep">Nombre actual: ${requestScope.p.nombre}</label>
       <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombrep">
     </div>
     <div class="form-group">
-      <label for="desc">Descripcion actual: ${requestScope.plato.descripcion}</label>
+      <label for="desc">Descripcion actual: ${requestScope.p.descripcion}</label>
       <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descp">
     </div>
     <div class="form-group">
-      <label for="autor">Autor del plato: ${requestScope.plato.descripcion}</label>
+      <label for="autor">Autor del plato: ${requestScope.p.descripcion}</label>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
     <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
@@ -88,6 +88,6 @@
   </div>
   </form>
 </div>
-<a href="AddIngredient">Añadir ingrediente</a>
+<a href="AddIngredient">AÃ±adir ingrediente</a>
 <a href="Inicio">Volver al inicio</a>
 <jsp:include page="plantilla/pie.jsp" />
