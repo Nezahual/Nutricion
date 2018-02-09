@@ -75,7 +75,7 @@ public class PlatoDAOImpl implements PlatoDAO {
         String sql = "select * from platos where autor=?";
 
         
-        List<Plato> listaDePlatoAutor = jdbc.query(sql, new PlatoRowMapper());
+        List<Plato> listaDePlatoAutor = jdbc.query(sql, new Object[]{autor}, new PlatoRowMapper());
 
         return listaDePlatoAutor;
     }

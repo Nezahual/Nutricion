@@ -1,5 +1,5 @@
 <jsp:include page="plantilla/cabecera.jsp" />
-        <h1>Consulta de plato: </h1>
+        <h1>Listado de platos: </h1>
         
         <div>
             <label> </label>

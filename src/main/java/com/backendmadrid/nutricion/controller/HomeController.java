@@ -46,10 +46,10 @@ public class HomeController {
     public ModelAndView consultarPlato(
             HttpServletResponse response,
             HttpServletRequest request,
-            @RequestParam(value = "autor") String autor
+            HttpSession sesion
             ) throws IOException {
         
-        List<Plato> listaDePlatoAutor = platoDAO.listarPlatoPorAutor(autor);
+        List<Plato> listaDePlatoAutor = platoDAO.listarPlatoPorAutor((String)sesion.getAttribute("usuario"));
 
         ModelAndView mv = new ModelAndView("consultarplato");
         mv.addObject("listado", listaDePlatoAutor);
@@ -187,5 +187,12 @@ public class HomeController {
         }
         
         return m;
+    }
+    
+    @RequestMapping(value="/Logout")
+    public ModelAndView EjecutarLogout (HttpServletResponse response, HttpSession sesion){
+        
+        sesion.invalidate();
+        return new ModelAndView("inicio");
     }
 }
