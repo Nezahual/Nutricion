@@ -1,18 +1,4 @@
 <jsp:include page="plantilla/cabecera.jsp" />
-        <title>TODO supply a title</title>
-        <meta charset="windows-1252">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .titulo {
-                font-weight: bolder;
-            }
-            
-            table {
-                border: 1px solid black;
-            }
-        </style>
-    </head>
-    <body>
         <h1>Detalles del plato</h1>
         <label class="titulo">Nombre: </label><label>nombre del plato.</label>
         <br>
