@@ -5,31 +5,25 @@
 --%>
 
 <jsp:include page="plantilla/cabecera.jsp" />
-        <h1>Datos del Autor: </h1>
-        <form action="EjecutarCrearPlato" method="POST">
-            <table>
-                <tr>
-                    <td><label for="nombre">Nombre:</label></td>
-                    <td><input type="text" name="nombre" placeholder="Nombre del plato"/></td>
-                </tr>
-                <tr>
-                    <td><label for="descripcion">Descripcion:</label></td>
-                    <td><input type="text" name="descripcion" placeholder="Descripcion del plato"/></td>
-                </tr>
-                <tr>
-                    <td><label for="autor">Autor del plato:</label></td>
-                    <td><input type="text" name="autor" placeholder="Autor del plato"/></td>
-                </tr>
-                <tr>
-                    <td style="text-align:center">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </td>
-                    <td style="text-align:center">
-                        <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <a href="AgregarIngrediente?idIngrediente=${requestScope.ingredientes.idPlato}">Añadir ingrediente</a>
-        <a href="Inicio">Volver al inicio</a>
-    <jsp:include page="plantilla/pie.jsp" />
+<div class="container">
+    <h2>Datos del plato: </h2>
+    <form action="EjecutarCrearPlato" method="Post">
+        <div class="form-group">
+            <label for="nombrep">Plato</label>
+            <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombrep">
+        </div>
+        <div class="form-group">
+            <label for="desc">Descripcion</label>
+            <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descp">
+        </div>
+        <div class="form-group">
+            <label for="autor">Autor</label>
+            <input type="text" class="form-control" id="autor" placeholder="Introducir nombre" name="autorp">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
+    </form>
+</div>
+<a href="AgregarIngrediente?idIngrediente=${requestScope.ingredientes.idPlato}">Añadir ingrediente</a>
+<a href="Inicio">Volver al inicio</a>
+<jsp:include page="plantilla/pie.jsp" />
