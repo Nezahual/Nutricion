@@ -53,6 +53,7 @@ public class HomeController {
 
         ModelAndView mv = new ModelAndView("consultarplato");
         mv.addObject("listado", listaDePlatoAutor);
+        
         return mv;    
     } 
     
@@ -67,6 +68,7 @@ public class HomeController {
         Plato p= platoDAO.buscarPorId(id);
         
         List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(id);
+        
         ModelAndView mv1 = new ModelAndView("editarplato");
         mv1.addObject("listado", listadoIngredientesEnPlato);
 
@@ -100,11 +102,14 @@ public class HomeController {
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato
             ) throws IOException {
+        
         List<Ingrediente> listaDeIngredientes = ingredienteDAO.listarIngredientes();
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
+        
         mv.addObject("listado", listaDeIngredientes);
         mv.addObject(idPlato);
+        
         return mv;
     }
     
@@ -118,6 +123,7 @@ public class HomeController {
             @RequestParam(value = "idIngrediente") int idIngrediente,
             @RequestParam(value = "cantidad") int cantidad
             ) throws IOException {
+        
         platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngrediente, cantidad);
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
@@ -127,12 +133,13 @@ public class HomeController {
     
     //-----------------------(Eliminar ingrediente)--------------//
     @RequestMapping(value = "/EliminarIngrediente")
-    public ModelAndView eliminerIngrediente(
+    public ModelAndView eliminarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato,
             @RequestParam(value = "idIngrediente")int idIngrediente
             ) throws IOException {
+        
         platoIngredienteDAO.borrarIngredienteDePlato(idPlato, idIngrediente);
         
         ModelAndView mv = new ModelAndView("agregaringrediente");
