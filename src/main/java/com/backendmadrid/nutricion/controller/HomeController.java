@@ -89,8 +89,9 @@ public class HomeController {
 
         Plato p = new Plato(-1,nombre, descripcion, autor);
         platoDAO.crearPlato(p);
-
-        return new ModelAndView("editarplato");
+        ModelAndView mv = new ModelAndView("editarplato");
+        mv.addObject("p",p);
+        return mv;
     }
     
     
