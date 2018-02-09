@@ -10,17 +10,19 @@
   <form action="EjecutarEditarPlato" method="Post">
   <table>
     <div class="form-group">
-      <label for="nombrep">Nombre actual: ${requestScope.p.nombre}</label>
-      <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombre">
+      <label for="nombrep">Nombre actual: </label>
+      <input type="text" class="form-control" id="nombrep" placeholder="${requestScope.p.nombre}" name="nombre">
     </div>
     <div class="form-group">
-      <label for="desc">Descripcion actual: ${requestScope.p.descripcion}</label>
-      <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descripcion">
+      <label for="desc">Descripcion actual: </label>
+      <textarea class="form-control" id="desc" name="descripcion" placeholder="${requestScope.p.descripcion}" rows="3"></textarea>
     </div>
     <div class="form-group">
       <label for="aut">Autor del plato: ${requestScope.p.autor}</label>
-      <input type="hidden" class="form-control" id="autc" value="${requestScope.p.autor}" name="autor"> 
+      <input type="hidden" class="form-control" id="autc" value="${requestScope.p.autor}" name="autor">
+      <input type="hidden" class="form-control" id="idPlato" value="${requestScope.p.id}" name="id">
     </div>
+      
     <button type="submit" class="btn btn-primary">Enviar</button>
     <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
     </table>
