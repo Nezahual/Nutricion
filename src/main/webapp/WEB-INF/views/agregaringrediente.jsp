@@ -12,7 +12,7 @@
             </datalist>
         </div>
         <div class="form-group">
-            <label for="cantidad">Cantidad</label>
+            <label for="cantidad">Cantidad (g)</label>
             <input type="number" class="form-control" id="cantidad" min="0" step="10" name="cantidad">
         </div>
         <input type="hidden" value="${requestScope.idPlato}" name="idPlato">
