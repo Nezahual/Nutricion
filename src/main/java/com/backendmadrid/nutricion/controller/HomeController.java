@@ -88,7 +88,7 @@ public class HomeController {
     ) throws IOException {
 
         Plato p = new Plato(-1,nombre, descripcion, autor);
-        platoDAO.crearPlato(p);
+        platoDAO.editarPlato(p);
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("p",p);
         return mv;
