@@ -7,7 +7,7 @@
 <jsp:include page="plantilla/cabecera.jsp" />
 <div class="container" style="width:50%">
   <h2>Datos del plato: </h2>
-  <form action="EjecutarCrearPlato" method="Post">
+  <form action="EjecutarEditarPlato" method="Post">
   <table>
     <div class="form-group">
       <label for="nombrep">Nombre actual: ${requestScope.p.nombre}</label>
