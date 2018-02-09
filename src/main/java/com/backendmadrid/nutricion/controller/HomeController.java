@@ -71,6 +71,7 @@ public class HomeController {
         
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("listado", listadoIngredientesEnPlato);
+        
         mv.addObject("p", p);
 
         return mv;
