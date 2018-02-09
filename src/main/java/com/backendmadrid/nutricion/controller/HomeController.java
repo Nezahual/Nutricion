@@ -62,7 +62,7 @@ public class HomeController {
     @RequestMapping(value = "/EditarPlato")
     public ModelAndView editarPlato(
             HttpServletResponse response,
-            @RequestParam(value = "id") int id
+            @RequestParam(value = "idPlato") int id
             ) throws IOException {
 
         Plato p= platoDAO.buscarPorId(id);
