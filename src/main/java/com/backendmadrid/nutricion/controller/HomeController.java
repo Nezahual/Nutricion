@@ -158,12 +158,12 @@ public class HomeController {
     public ModelAndView ejecutarCrearPlato(
             HttpServletResponse response,
             HttpServletRequest request,
+            HttpSession sesion,
             @RequestParam(value = "nombre") String nombre,
-            @RequestParam(value = "descripcion") String descripcion,
-            @RequestParam(value = "autor") String autor
+            @RequestParam(value = "descripcion") String descripcion
     ) throws IOException {
 
-        Plato p = new Plato(-1,nombre, descripcion, autor);
+        Plato p = new Plato(-1,nombre, descripcion, (String)sesion.getAttribute("usuario"));
         platoDAO.crearPlato(p);
         
         return new ModelAndView("agregaringrediente");

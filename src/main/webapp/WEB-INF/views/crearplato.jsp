@@ -9,8 +9,8 @@
     <h2>Datos del plato: </h2>
     <form action="EjecutarCrearPlato" method="Post">
         <div class="form-group">
-            <label for="nombrep">Plato</label>
-            <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombrep">
+            <label for="nombre">Plato</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Introducir nombre" name="nombre">
         </div>
         <div class="form-group">
             <label for="desc">Descripcion</label>
