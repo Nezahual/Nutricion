@@ -9,7 +9,7 @@
     <c:if test="${not empty sessionScope.usuario}">
         <a href="ConsultarPlato">Consultar plato</a>
         <a href="CrearPlato">Crear plato</a>
-        <a href="Logout" class="loginLogout">Login</a>
+        <a href="Logout" class="loginLogout">Logout</a>
     </c:if>
     <c:if test="${empty sessionScope.usuario}">
         <a href="Login" class="loginLogout">Login</a>
