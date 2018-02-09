@@ -29,20 +29,22 @@
             </td>
         </tr>
     </table>
-    <table>
-        <thread>
+    <table class="table table-bordered">
+        <thead>
             <tr>
-                <td>Ingrediente</td>
+                <th>Ingredientes</th>
             </tr>
-        </thread>
-        <c:forEach items="${requestScope.ingredientes}" var="c" >  <!--Crear y cambiar requestscope-->
-            <tr>
-                <td>
-                    ${c.descripcion}
-                    <a href="EliminarIngredientes?idIngrediente=${c.idPlato}&idPlato=${c.idIngrediente}">Eliminar</a>
-                </td>
-            </tr>
-        </c:forEach>
+        </thead>
+        <tbody>
+            <c:forEach items="${requestScope.ingredientes}" var="c" >
+                <tr>
+                    <td>
+                        ${c.descripcion}
+                        <a href="EliminarIngredientes?idIngrediente=${c.idPlato}&idPlato=${c.idIngrediente}">Eliminar</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
     </table>
 </form>
 <a href="AddIngredient">Añadir ingrediente</a>
