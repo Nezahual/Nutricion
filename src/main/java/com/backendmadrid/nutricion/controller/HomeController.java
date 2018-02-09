@@ -69,10 +69,8 @@ public class HomeController {
         
         List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(idPlato);
         
-        ModelAndView mv1 = new ModelAndView("editarplato");
-        mv1.addObject("listado", listadoIngredientesEnPlato);
-
         ModelAndView mv = new ModelAndView("editarplato");
+        mv.addObject("listado", listadoIngredientesEnPlato);
         mv.addObject("p", p);
 
         return mv;
@@ -82,6 +80,7 @@ public class HomeController {
     public ModelAndView ejecutarEditarPlato(
             HttpServletResponse response,
             HttpServletRequest request,
+            @RequestParam(value = "id") int id,
             @RequestParam(value = "nombre") String nombre,
             @RequestParam(value = "descripcion") String descripcion,
             @RequestParam(value = "autor") String autor
