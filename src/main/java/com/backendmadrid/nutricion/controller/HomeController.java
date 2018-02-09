@@ -52,7 +52,7 @@ public class HomeController {
         List<Plato> listaDePlatoAutor = platoDAO.listarPlatoPorAutor((String)sesion.getAttribute("usuario"));
 
         ModelAndView mv = new ModelAndView("consultarplato");
-        mv.addObject("listado", listaDePlatoAutor);
+        mv.addObject("listadoPlatos", listaDePlatoAutor);
         
         return mv;    
     } 
