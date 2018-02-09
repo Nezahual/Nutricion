@@ -93,6 +93,9 @@
   </div>
   </form>
 </div>
-<a href="AgregarIngrediente">Agregar ingrediente</a>
+<form action="AgregarIngrediente" method="Post">
+    <input type="hidden" class="form-control" value="${requestScope.p.id}" name="idPlato">
+    <button type="submit" class="btn btn-primary">Agregar Ingrediente</button>
+</form>
 <a href="Inicio">Volver al inicio</a>
 <jsp:include page="plantilla/pie.jsp" />
