@@ -9,6 +9,7 @@ import com.backendmadrid.nutricion.modelo.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -43,8 +44,14 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         
         String sql="select * from usuarios where username=? and password=?";
         boolean r=false;
+        Usuario v = null;
         
-        Usuario v=jdbc.queryForObject(sql, new Object[]{u.getUsername(),password}, new UsuarioRowMapper());
+        try{
+            v=jdbc.queryForObject(sql, new Object[]{u.getUsername(),password}, new UsuarioRowMapper());
+        }catch(EmptyResultDataAccessException erdae){
+            
+        }
+        
         if(v!=null){
             u.setUsername(v.getUsername());
             r=true;

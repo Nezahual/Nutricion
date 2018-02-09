@@ -205,6 +205,7 @@ public class HomeController {
             m=new ModelAndView("inicio");
         }else{
             m=new ModelAndView("login");
+            m.addObject("mensajeError", "Usuario/Contraseña incorrectos.");
         }
         
         return m;

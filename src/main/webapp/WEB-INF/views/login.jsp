@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
 <div class="container" style="width:30%">
     <form action="EjecutarLogin" method="post">
@@ -12,5 +13,8 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
     </form> 
+    <c:if test="${not empty requestScope.mensajeError}">
+        <h6 style="color:red; margin-top: 15px;">${requestScope.mensajeError}</h6>
+    </c:if>
 </div>
 <jsp:include page="plantilla/pie.jsp" />

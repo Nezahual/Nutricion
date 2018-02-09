@@ -33,7 +33,6 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Nombre</th>
           <th>Cantidad</th>
           <th>Agua</th>
           <th>Energia</th>
@@ -61,31 +60,33 @@
       </thead>
       <tbody>
       	<c:forEach items="${requestScope.listado}" var="c" >
+            <tr>
+                <td colspan="23">${c.getDescripcion()}</td>
+            </tr>
       		<tr>
-          		<td>${c.getDescripcion()} gr</td>
-          		<td>${c.getCantidad()}</td>
-          		<td>${c.getAgua()*(c.getCantidad()/100)}</td>
-          		<td>${c.getEnergia()*(c.getCantidad()/100)}</td>
-          		<td>${c.getProteinas()*(c.getCantidad()/100)}</td>
-          		<td>${c.getGrasas()*(c.getCantidad()/100)}</td>
-          		<td>${c.getCarbohidratos()*(c.getCantidad()/100)}</td>
-          		<td>${c.getFibra()*(c.getCantidad()/100)}</td>
-          		<td>${c.getAzucar()*(c.getCantidad()/100)}</td>
-          		<td>${c.getCalcio()*(c.getCantidad()/100)}</td>
-          		<td>${c.getHierro()*(c.getCantidad()/100)}</td>
-          		<td>${c.getMagnesio()*(c.getCantidad()/100)}</td>
-          		<td>${c.getFosforo()*(c.getCantidad()/100)}</td>
-          		<td>${c.getPotasio()*(c.getCantidad()/100)}</td>
-          		<td>${c.getSodio()*(c.getCantidad()/100)}</td>
-          		<td>${c.getVitaminaC()*(c.getCantidad()/100)}</td>
-          		<td>${c.getVitaminaB12()*(c.getCantidad()/100)}</td>
-          		<td>${c.getVitaminaA()*(c.getCantidad()/100)}</td>
-          		<td>${c.getVitaminaE()*(c.getCantidad()/100)}</td>
-         		<td>${c.getVitaminaD()*(c.getCantidad()/100)}</td>
-          		<td>${c.getGrasasSaturadas()*(c.getCantidad()/100)}</td>
-          		<td>${c.getGrasasMono()*(c.getCantidad()/100)}</td>
-          		<td>${c.getGrasasPoli()*(c.getCantidad()/100)}</td>
-          		<td>${c.getColesterol()*(c.getCantidad()/100)}</td>
+                    <td style="white-space: nowrap;">${c.getCantidad()}</td>
+                    <td>${c.getAgua()*(c.getCantidad()/100)}</td>
+                    <td>${c.getEnergia()*(c.getCantidad()/100)}</td>
+                    <td>${c.getProteinas()*(c.getCantidad()/100)}</td>
+                    <td>${c.getGrasas()*(c.getCantidad()/100)}</td>
+                    <td>${c.getCarbohidratos()*(c.getCantidad()/100)}</td>
+                    <td>${c.getFibra()*(c.getCantidad()/100)}</td>
+                    <td>${c.getAzucar()*(c.getCantidad()/100)}</td>
+                    <td>${c.getCalcio()*(c.getCantidad()/100)}</td>
+                    <td>${c.getHierro()*(c.getCantidad()/100)}</td>
+                    <td>${c.getMagnesio()*(c.getCantidad()/100)}</td>
+                    <td>${c.getFosforo()*(c.getCantidad()/100)}</td>
+                    <td>${c.getPotasio()*(c.getCantidad()/100)}</td>
+                    <td>${c.getSodio()*(c.getCantidad()/100)}</td>
+                    <td>${c.getVitaminaC()*(c.getCantidad()/100)}</td>
+                    <td>${c.getVitaminaB12()*(c.getCantidad()/100)}</td>
+                    <td>${c.getVitaminaA()*(c.getCantidad()/100)}</td>
+                    <td>${c.getVitaminaE()*(c.getCantidad()/100)}</td>
+                    <td>${c.getVitaminaD()*(c.getCantidad()/100)}</td>
+                    <td>${c.getGrasasSaturadas()*(c.getCantidad()/100)}</td>
+                    <td>${c.getGrasasMono()*(c.getCantidad()/100)}</td>
+                    <td>${c.getGrasasPoli()*(c.getCantidad()/100)}</td>
+                    <td>${c.getColesterol()*(c.getCantidad()/100)}</td>
         	</tr>
          </c:forEach>
       </tbody>
