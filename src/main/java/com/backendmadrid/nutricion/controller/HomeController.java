@@ -100,7 +100,7 @@ public class HomeController {
     public ModelAndView agregarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
-            @RequestParam(value = "idPlato") int idPlato
+            @RequestParam(value = "id") int id
             ) throws IOException {
         
         List<Ingrediente> listaDeIngredientes = ingredienteDAO.listarIngredientes();
@@ -108,7 +108,7 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
         mv.addObject("listado", listaDeIngredientes);
-        mv.addObject(idPlato);
+        mv.addObject(id);
         
         return mv;
     }
