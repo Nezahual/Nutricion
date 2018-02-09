@@ -42,7 +42,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
             ds.setDriverClassName("com.mysql.jdbc.Driver");
             ds.setUrl("jdbc:mysql://cloud.josebelda.com:3306/nutricion");
             ds.setUsername("nutricion");
-            ds.setPassword("root");
+            ds.setPassword("djEtf46Gd");
             
             return ds;
         }

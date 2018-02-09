@@ -12,6 +12,7 @@
             <a href="DetallesPlato">
                 <button>Consultar</button>
             </a>
-            <a href="Inicio">Volver al inicio</a>
+            <!-- boton bootstrap <button type="submit" class="btn btn-primary">Submit</button> -->
+            <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
         </div>
  <jsp:include page="plantilla/pie.jsp" />

@@ -175,14 +175,17 @@ public class HomeController {
             @RequestParam(value="usuario") String usuario,
             @RequestParam(value="password") String password    
     ) throws IOException {
-            Usuario u= new Usuario(usuario,password);
-            ModelAndView m;
-            if(usuarioDAO.autenticar(u,password)){
-                sesion.setAttribute("usuario",u);
-                m=new ModelAndView("inicio");
-            }else{
-                m=new ModelAndView("login");
-            }
-            return m;
+        
+        Usuario u= new Usuario(usuario,password);
+        ModelAndView m;
+        
+        if(usuarioDAO.autenticar(u,password)){
+            sesion.setAttribute("usuario",u.getUsername());
+            m=new ModelAndView("inicio");
+        }else{
+            m=new ModelAndView("login");
+        }
+        
+        return m;
     }
 }

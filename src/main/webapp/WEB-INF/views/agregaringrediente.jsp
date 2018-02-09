@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
     <h1>Seleccione un ingrediente</h1>
-    <form action="/action_page.php" method="get" id="theform">
+    <form method="get" id="theform">
         <div class="form-group">
             <label for="ingrediente">Ingrediente</label>
             <input type="text" list="ingredientes" id="ingrediente" class="form-control" >
