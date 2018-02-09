@@ -62,12 +62,12 @@ public class HomeController {
     @RequestMapping(value = "/EditarPlato")
     public ModelAndView editarPlato(
             HttpServletResponse response,
-            @RequestParam(value = "id") int id
+            @RequestParam(value = "idPlato") int idPlato
             ) throws IOException {
 
-        Plato p= platoDAO.buscarPorId(id);
+        Plato p= platoDAO.buscarPorId(idPlato);
         
-        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(id);
+        List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(idPlato);
         
         ModelAndView mv1 = new ModelAndView("editarplato");
         mv1.addObject("listado", listadoIngredientesEnPlato);
@@ -88,9 +88,10 @@ public class HomeController {
     ) throws IOException {
 
         Plato p = new Plato(-1,nombre, descripcion, autor);
-        platoDAO.crearPlato(p);
-
-        return new ModelAndView("editarplato");
+        platoDAO.editarPlato(p);
+        ModelAndView mv = new ModelAndView("editarplato");
+        mv.addObject("p",p);
+        return mv;
     }
     
     

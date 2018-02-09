@@ -46,15 +46,16 @@ public class PlatoIngredienteDAOImpl implements PlatoIngredienteDAO{
         List<PlatoIngrediente> listadoIngredientesEnPlato = null;
         
 
-        String sql = "select p.id,in.*,pi.cantidad "
+        String sql = "select p.id, ing.*, pi.cantidad "
                 + "from platos as p "
                 + "join plato_ingrediente as pi "
                 + "on(p.id=pi.id_plato) "
-                + "join ingredientes as in "
-                + "on(pi.idingrediente=in.id) "
+                + "join ingredientes as ing "
+                + "on(pi.id_ingrediente=ing.id) "
                 + "where p.id=?";
         
-        return listadoIngredientesEnPlato = jdbc.query(sql, new PlatoIngredienteRowMapper());
+        listadoIngredientesEnPlato = jdbc.query(sql, new PlatoIngredienteRowMapper(),new Object[]{idPlato});
+        return listadoIngredientesEnPlato;
     }
     
     public void borrarIngredienteDePlato(int idPlato, int idIngrediente){
