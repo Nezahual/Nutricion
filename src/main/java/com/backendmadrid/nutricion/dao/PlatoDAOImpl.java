@@ -6,12 +6,17 @@
 package com.backendmadrid.nutricion.dao;
 
 import com.backendmadrid.nutricion.modelo.Plato;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 /**
  *
@@ -43,21 +48,28 @@ public class PlatoDAOImpl implements PlatoDAO {
         }    
     }
     
-    public void crearPlato(Plato p){
-        
-        String sql="insert into platos("
+    public int crearPlato(Plato p){
+        final Plato pAux = p;
+        final String sql="insert into platos("
                 + "nombre,"
                 + "descripcion,"
                 + "autor)"
                 + "values "
                 + "(?,?,?)";
         
+        GeneratedKeyHolder kh=new GeneratedKeyHolder();
+        int n=jdbc.update(new PreparedStatementCreator(){
+            @Override
+            public PreparedStatement createPreparedStatement(Connection con) throws SQLException{
+                PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1,pAux.getNombre());
+                ps.setString(2,pAux.getDescripcion());
+                ps.setString(3,pAux.getAutor());
+                return ps;
+            }
+        },kh);    
         
-        int n=jdbc.update(sql,new Object[]{
-            p.getNombre(),
-            p.getDescripcion(),
-            p.getAutor()
-        });    
+        return kh.getKey().intValue();
     }
     
     public List<Plato> listar() {

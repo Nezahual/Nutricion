@@ -121,12 +121,16 @@ public class HomeController {
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato,
             @RequestParam(value = "idIngrediente") int idIngrediente,
-            @RequestParam(value = "cantidad") int cantidad
+            @RequestParam(value = "accion") int cantidad,
+            @RequestParam(value = "cantidad") String accion
             ) throws IOException {
         
         platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngrediente, cantidad);
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
+        
+        if(accion.equals("terminar"))
+            mv.setViewName("inicio");
         
         return mv;
     }
@@ -163,10 +167,15 @@ public class HomeController {
             @RequestParam(value = "descripcion") String descripcion
     ) throws IOException {
 
-        Plato p = new Plato(-1,nombre, descripcion, (String)sesion.getAttribute("usuario"));
-        platoDAO.crearPlato(p);
+        ModelAndView vista = new ModelAndView("agregaringrediente");
         
-        return new ModelAndView("agregaringrediente");
+        Plato p = new Plato(-1,nombre, descripcion, (String)sesion.getAttribute("usuario"));
+        int ipPlato = platoDAO.crearPlato(p);
+        List<Ingrediente> listaIngredientes = ingredienteDAO.listarIngredientes();
+        vista.addObject("listaIngredientes", listaIngredientes);
+        vista.addObject("ipPlato", ipPlato);
+        
+        return vista;
     }
 
     //-----------------------------(Inicio Sesion)--------------------//
