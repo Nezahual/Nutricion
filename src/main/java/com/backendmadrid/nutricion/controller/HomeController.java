@@ -69,10 +69,9 @@ public class HomeController {
         
         List<PlatoIngrediente> listadoIngredientesEnPlato = platoIngredienteDAO.obtenerIngredientesPorPlato(idPlato);
         
-        ModelAndView mv1 = new ModelAndView("editarplato");
-        mv1.addObject("listado", listadoIngredientesEnPlato);
-
         ModelAndView mv = new ModelAndView("editarplato");
+        mv.addObject("listado", listadoIngredientesEnPlato);
+
         mv.addObject("p", p);
 
         return mv;
