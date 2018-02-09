@@ -54,7 +54,8 @@ public class PlatoIngredienteDAOImpl implements PlatoIngredienteDAO{
                 + "on(pi.id_ingrediente=ing.id) "
                 + "where p.id=?";
         
-        return listadoIngredientesEnPlato = jdbc.query(sql, new PlatoIngredienteRowMapper());
+        listadoIngredientesEnPlato = jdbc.query(sql, new PlatoIngredienteRowMapper(),new Object[]{idPlato});
+        return listadoIngredientesEnPlato;
     }
     
     public void borrarIngredienteDePlato(int idPlato, int idIngrediente){
