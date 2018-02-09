@@ -18,7 +18,7 @@
       <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descp">
     </div>
     <div class="form-group">
-      <label for="autor">Autor del plato: ${requestScope.p.descripcion}</label>
+      <label for="autor">Autor del plato: ${requestScope.p.autor}</label>
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
     <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
