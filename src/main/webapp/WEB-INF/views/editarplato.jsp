@@ -11,14 +11,15 @@
   <table>
     <div class="form-group">
       <label for="nombrep">Nombre actual: ${requestScope.p.nombre}</label>
-      <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombrep">
+      <input type="text" class="form-control" id="nombrep" placeholder="Introducir nombre" name="nombre">
     </div>
     <div class="form-group">
       <label for="desc">Descripcion actual: ${requestScope.p.descripcion}</label>
-      <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descp">
+      <input type="text" class="form-control" id="desc" placeholder="Introducir descripcion" name="descripcion">
     </div>
     <div class="form-group">
-      <label for="autor">Autor del plato: ${requestScope.p.autor}</label>
+      <label for="aut">Autor del plato: ${requestScope.p.autor}</label>
+      <input type="hidden" class="form-control" id="autc" value="${requestScope.p.autor}" name="autor"> 
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
     <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
