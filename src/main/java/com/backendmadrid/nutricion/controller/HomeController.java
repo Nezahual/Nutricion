@@ -86,7 +86,7 @@ public class HomeController {
             @RequestParam(value = "autor") String autor
     ) throws IOException {
 
-        Plato p = new Plato(-1,nombre, descripcion, autor);
+        Plato p = new Plato(id,nombre, descripcion, autor);
         platoDAO.editarPlato(p);
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("p",p);
