@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             <label for="desc">Descripcion</label>
-            <textarea class="form-control" name="descripcion" id="desc" rows="3"></textarea>
+            <textarea class="form-control" name="descripcion" id="desc" rows="4">Introducir descripcion</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
         <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
