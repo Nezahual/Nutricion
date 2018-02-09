@@ -71,6 +71,7 @@ public class HomeController {
         
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("listado", listadoIngredientesEnPlato);
+        
 
         
         mv.addObject("p", p);
@@ -82,12 +83,14 @@ public class HomeController {
     public ModelAndView ejecutarEditarPlato(
             HttpServletResponse response,
             HttpServletRequest request,
+            HttpSession sesion,
+            @RequestParam(value = "idPlato") int idPlato,
             @RequestParam(value = "nombre") String nombre,
             @RequestParam(value = "descripcion") String descripcion,
             @RequestParam(value = "autor") String autor
     ) throws IOException {
 
-        Plato p = new Plato(-1,nombre, descripcion, autor);
+        Plato p = new Plato(idPlato,nombre, descripcion, (String)sesion.getAttribute("usuario"));
         platoDAO.editarPlato(p);
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("p",p);
