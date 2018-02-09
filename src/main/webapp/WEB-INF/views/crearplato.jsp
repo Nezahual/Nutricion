@@ -22,14 +22,14 @@
                 </tr>
                 <tr>
                     <td style="text-align:center">
-                        <button type="submit">Insertar</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </td>
                     <td style="text-align:center">
-                        <a href="Inicio">Cancelar</a>
+                        <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
                     </td>
                 </tr>
             </table>
         </form>
-        <a href="AddIngredient">Añadir ingrediente</a>
+        <a href="AgregarIngrediente?idIngrediente=${requestScope.ingredientes.idPlato}">Añadir ingrediente</a>
         <a href="Inicio">Volver al inicio</a>
     <jsp:include page="plantilla/pie.jsp" />

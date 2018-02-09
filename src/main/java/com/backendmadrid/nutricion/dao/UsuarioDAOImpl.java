@@ -41,7 +41,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     
     public Boolean autenticar(Usuario u,String password){
         
-        String sql="select nombre_completo from usuario where username=? and password=?";
+        String sql="select nombre_completo from usuarios where username=? and password=?";
         boolean r=false;
         
         Usuario v=jdbc.queryForObject(sql, new Object[]{u.getUsername(),password}, new UsuarioRowMapper());
