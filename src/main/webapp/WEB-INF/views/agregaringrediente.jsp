@@ -13,14 +13,14 @@
         </div>
         <div class="form-group">
             <label for="cantidad">Cantidad</label>
-            <input type="number" class="form-control" id="cantidad" name="cantidad">
+            <input type="number" class="form-control" id="cantidad" min="0" step="10" name="cantidad">
         </div>
         <input type="hidden" value="${requestScope.idPlato}" name="idPlato">
         
-        <<!--<input type="button" value="Añadir y terminar">
-        <input type="button" value="Añadir y agregar otro">-->
-        <button type="submit" id="agregarTerminar">Añadir y terminar</button>
-        <button type="submit" id="agregarSeguir">Añadir y agregar otro</button>
+        <!--<input type="button" value="AÃ±adir y terminar">
+        <input type="button" value="AÃ±adir y agregar otro">-->
+        <button type="submit" id="agregarTerminar">AÃ±adir y terminar</button>
+        <button type="submit" id="agregarSeguir">AÃ±adir y agregar otro</button>
     </form>
     <script>
         /*document.getElementById('anadirTerminar').onclick(function(){
