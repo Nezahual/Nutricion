@@ -127,7 +127,7 @@ public class HomeController {
     
     //-----------------------(Eliminar ingrediente)--------------//
     @RequestMapping(value = "/EliminarIngrediente")
-    public ModelAndView eliminerIngrediente(
+    public ModelAndView eliminarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato,
