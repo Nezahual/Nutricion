@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
     <h1>Seleccione un ingrediente</h1>
-    <form method="EjecutarAgregarIngrediente" id="theform">
+    <form action="EjecutarAgregarIngrediente" method="POST">
         <div class="form-group">
             <label for="ingrediente">Ingrediente</label>
-            <input type="text" list="ingredientes" id="ingrediente" class="form-control" >
-            <datalist id="ingredientes" name="idIngrediente">
+            <input type="text" list="ingredientes" id="ingrediente" class="form-control"  name="idIngrediente">
+            <datalist id="ingredientes">
                 <c:forEach items="${requestScope.listaIngredientes}" var="ingredienteAux">
                     <option value="${ingredienteAux.getId()}">${ingredienteAux.getDescripcion()}</option>
                 </c:forEach>

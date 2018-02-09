@@ -71,6 +71,7 @@ public class HomeController {
         
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("listado", listadoIngredientesEnPlato);
+
         
         mv.addObject("p", p);
 
@@ -81,13 +82,12 @@ public class HomeController {
     public ModelAndView ejecutarEditarPlato(
             HttpServletResponse response,
             HttpServletRequest request,
-            @RequestParam(value = "id") int id,
             @RequestParam(value = "nombre") String nombre,
             @RequestParam(value = "descripcion") String descripcion,
             @RequestParam(value = "autor") String autor
     ) throws IOException {
 
-        Plato p = new Plato(id,nombre, descripcion, autor);
+        Plato p = new Plato(-1,nombre, descripcion, autor);
         platoDAO.editarPlato(p);
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("p",p);
@@ -101,7 +101,7 @@ public class HomeController {
     public ModelAndView agregarIngrediente(
             HttpServletResponse response,
             HttpServletRequest request,
-            @RequestParam(value = "id") int id
+            @RequestParam(value = "idPlato") int idPlato
             ) throws IOException {
         
         List<Ingrediente> listaDeIngredientes = ingredienteDAO.listarIngredientes();
@@ -109,7 +109,7 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
         mv.addObject("listado", listaDeIngredientes);
-        mv.addObject(id);
+        mv.addObject("idPlato", idPlato);
         
         return mv;
     }
@@ -122,8 +122,8 @@ public class HomeController {
             HttpServletRequest request,
             @RequestParam(value = "idPlato") int idPlato,
             @RequestParam(value = "idIngrediente") int idIngrediente,
-            @RequestParam(value = "accion") int cantidad,
-            @RequestParam(value = "cantidad") String accion
+            @RequestParam(value = "cantidad") int cantidad,
+            @RequestParam(value = "accion") String accion
             ) throws IOException {
         
         platoIngredienteDAO.agregarIngredienteAPlato(idPlato, idIngrediente, cantidad);
@@ -132,6 +132,10 @@ public class HomeController {
         
         if(accion.equals("terminar"))
             mv.setViewName("inicio");
+        else{
+            mv.addObject("listaIngredientes", ingredienteDAO.listarIngredientes());
+            mv.addObject("idPlato", idPlato);
+        }
         
         return mv;
     }
@@ -171,10 +175,10 @@ public class HomeController {
         ModelAndView vista = new ModelAndView("agregaringrediente");
         
         Plato p = new Plato(-1,nombre, descripcion, (String)sesion.getAttribute("usuario"));
-        int ipPlato = platoDAO.crearPlato(p);
+        int idPlato = platoDAO.crearPlato(p);
         List<Ingrediente> listaIngredientes = ingredienteDAO.listarIngredientes();
         vista.addObject("listaIngredientes", listaIngredientes);
-        vista.addObject("ipPlato", ipPlato);
+        vista.addObject("idPlato", idPlato);
         
         return vista;
     }

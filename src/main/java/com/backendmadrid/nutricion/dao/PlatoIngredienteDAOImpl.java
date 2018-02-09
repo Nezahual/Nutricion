@@ -69,5 +69,7 @@ public class PlatoIngredienteDAOImpl implements PlatoIngredienteDAO{
         
         String sql = "insert into plato_ingrediente (id_plato, id_ingrediente, cantidad) "
                 + "values (?, ?, ?)";
+        
+        jdbc.update(sql, new Object[]{idPlato, idIngrediente, cantidad});
     }
 }
