@@ -36,3 +36,4 @@ logs/
 # Netbeans
 nbactions*.xml
 nb-configuration*.xml
+/nbproject/
