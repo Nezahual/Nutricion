@@ -72,8 +72,6 @@ public class HomeController {
         ModelAndView mv = new ModelAndView("editarplato");
         mv.addObject("listado", listadoIngredientesEnPlato);
         
-
-        
         mv.addObject("p", p);
 
         return mv;
@@ -89,13 +87,18 @@ public class HomeController {
             @RequestParam(value = "descripcion") String descripcion,
             @RequestParam(value = "autor") String autor
     ) throws IOException {
-
+        
         Plato p = new Plato(idPlato,nombre, descripcion, (String)sesion.getAttribute("usuario"));
         platoDAO.editarPlato(p);
-        ModelAndView mv = new ModelAndView("editarplato");
+        ModelAndView mv = new ModelAndView("inicio");
+        
+        mv.addObject("mensaje", "Editado correctamente");
         mv.addObject("p",p);
+        
         return mv;
     }
+    
+    
     
     
     //----------------------------(Lista ingredientes)--------------------//
@@ -107,11 +110,10 @@ public class HomeController {
             @RequestParam(value = "idPlato") int idPlato
             ) throws IOException {
         
-        List<Ingrediente> listaDeIngredientes = ingredienteDAO.listarIngredientes();
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
-        mv.addObject("listado", listaDeIngredientes);
+        mv.addObject("listaIngredientes", ingredienteDAO.listarIngredientes());
         mv.addObject("idPlato", idPlato);
         
         return mv;
@@ -133,8 +135,10 @@ public class HomeController {
 
         ModelAndView mv = new ModelAndView("agregaringrediente");
         
-        if(accion.equals("terminar"))
+        if(accion.equals("terminar")){
             mv.setViewName("inicio");
+            mv.addObject("mensaje", "Agregado correctamente");
+        }    
         else{
             mv.addObject("listaIngredientes", ingredienteDAO.listarIngredientes());
             mv.addObject("idPlato", idPlato);
@@ -201,17 +205,18 @@ public class HomeController {
     ) throws IOException {
         
         Usuario u= new Usuario(usuario,password);
-        ModelAndView m;
+        ModelAndView mv;
         
         if(usuarioDAO.autenticar(u,password)){
             sesion.setAttribute("usuario",u.getUsername());
-            m=new ModelAndView("inicio");
+            mv=new ModelAndView("inicio");
+            mv.addObject("mensaje", "Logado correctamente");
         }else{
-            m=new ModelAndView("login");
-            m.addObject("mensajeError", "Usuario/Contraseña incorrectos.");
+            mv=new ModelAndView("login");
+            mv.addObject("mensajeError", "Usuario/Contraseña incorrectos.");
         }
         
-        return m;
+        return mv;
     }
     
     @RequestMapping(value="/Logout")
