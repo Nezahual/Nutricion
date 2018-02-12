@@ -17,9 +17,9 @@
     </head>
     <body>
         <div class="container">
-            <div class="row" id="menuContainer" style="height: 12vh; border: 1px solid black;">
+            <div class="row" id="menuContainer" style="height: 12vh; ">
                 <jsp:include page="menu.jsp" />
             </div>
             <!--Inicio Contenido Pagina-->
-            <div class="row" style="border: 1px solid black;">
+            <div class="row" style="">
                 <div class="col align-self-center">
