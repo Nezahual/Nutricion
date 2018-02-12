@@ -5,8 +5,16 @@
 
 <jsp:include page="plantilla/cabecera.jsp" />
 <div class="container" style="height:80vh; padding-top: 10vh;">
-    <c:if test="${empty requestScope.mensaje}">
-        <h1>Bienvenido a la aplicación de nutrición Healthy Smart.</h1>
-    </c:if>
+<c:choose>
+    <c:when test="${not empty requestScope.mensaje}">
+        <h1>${requestScope.mensaje}</h1>
+    </c:when>
+    <c:otherwise>
+        <h1>
+            Bienvenido a la web de Nutrición Healthy Smart.
+        </h1>
+    </c:otherwise>
+</c:choose>
+
 </div>
 <jsp:include page="plantilla/pie.jsp" />
