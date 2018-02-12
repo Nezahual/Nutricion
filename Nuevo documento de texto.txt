@@ -1,8 +1,8 @@
 <c:set var = "agua" scope = "request" value = "${agua=agua+((c.getAgua()*(c.getCantidad()/100)))}"/>
 <tr>
-                    <td colspan="23">Aporte total</td>
-                </tr>
-                <tr>
-                    <td>N/A</td>
-                    <td><fmt:formatNumber type = "number" maxFractionDigits = "2" value = "${agua}" />${agua}</p></td>
-                </tr>
+  <td colspan="23">Aporte total</td>
+</tr>
+  <tr>
+  <td>N/A</td>
+  <td><fmt:formatNumber type = "number" maxFractionDigits = "2" value = "${agua}" />${agua}</p></td>
+</tr>
