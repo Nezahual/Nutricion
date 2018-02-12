@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
-<div class="container" style="width:40%">
+<div class="container" style="width:40%; height: 80vh; padding-top: 10vh;">
     <h1>Listado de platos: </h1>
 
     <form action="EditarPlato" method="POST">

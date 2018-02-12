@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
-<div class="container" style="width:30%">
+
+<div class="container" style="width:30%;height:80vh;padding-top:10vh;">
     <form action="EjecutarLogin" method="post">
         <div class="form-group">
             <label for="nombre">Nombre de usuario: </label>
