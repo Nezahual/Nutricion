@@ -21,5 +21,5 @@
                 <jsp:include page="menu.jsp" />
             </div>
             <!--Inicio Contenido Pagina-->
-            <div class="row"style="height: 80vh; border: 1px solid black;">
+            <div class="row" style="border: 1px solid black;">
                 <div class="col align-self-center">

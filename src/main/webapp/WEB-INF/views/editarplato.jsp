@@ -5,10 +5,10 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="plantilla/cabecera.jsp" />
-<div class="container" style="width:50%">
-  <h2>Datos del plato: </h2>
-  <form action="EjecutarEditarPlato" method="Post">
-  <table>
+<div class="container" style="width:50%; margin-top: 20px; margin-bottom: 20px;">
+    <h2>Datos del plato: </h2>
+    <form action="EjecutarEditarPlato" method="Post">
+    <table>
     <div class="form-group">
       <label for="nombrep">Nombre actual: </label>
       <input type="text" class="form-control" id="nombrep" value="${requestScope.p.nombre}" name="nombre">
@@ -18,15 +18,14 @@
       <textarea class="form-control" id="desc" name="descripcion" rows="4">${requestScope.p.descripcion}</textarea>
     </div>
     <div class="form-group">
-      <label for="aut">Autor del plato: ${requestScope.p.autor}</label>
       <input type="hidden" class="form-control" id="autc" value="${requestScope.p.autor}" name="autor">
-      <input type="hidden" class="form-control" id="idPlato" value="${requestScope.p.id}" name="id">
+      <input type="hidden" class="form-control" id="idPlato" value="${requestScope.p.id}" name="idPlato">
     </div>
       
     <button type="submit" class="btn btn-primary">Enviar</button>
     <a href="Inicio" class="btn btn-info" role="button">Cancelar</a>
     </table>
-  </div>
+</div>
   <div class="container"
     <br/>
     <div class="table-responsive">
@@ -94,9 +93,8 @@
   </div>
   </form>
 </div>
-<form action="AgregarIngrediente" method="Post">
+<form action="AgregarIngrediente" method="Post" style="margin: 20px">
     <input type="hidden" class="form-control" value="${requestScope.p.id}" name="idPlato">
-    <button type="submit" class="btn btn-primary">Agregar Ingrediente</button>
+    <button type="submit" class="btn btn-primary">Agregar nuevo ingrediente</button>
 </form>
-<a href="Inicio">Volver al inicio</a>
 <jsp:include page="plantilla/pie.jsp" />
